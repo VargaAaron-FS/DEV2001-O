@@ -45,7 +45,7 @@ Archive your entire project folder and upload here. Make sure your name is comme
  */
 
 // Setting up canvas
-function createChart(min,max){
+function createChart(min, max) {
     // Setup variables
     const canvas = document.querySelector("#canvas-graph");
     const ctx = canvas.getContext("2d");
@@ -53,20 +53,23 @@ function createChart(min,max){
     function randomNumsGen() {
         let total = 0;
         let randomNums = 0;
-        for (let i=0;i<5;i++) {
+
+        for (let i = 0; i < 5; i++) {
             randomNums = Math.floor(Math.random() * (max - min) + 1);
+
             // Draw random bar graph columns
             ctx.beginPath();
-            ctx.strokeStyle="transparent";
-            ctx.fillStyle="orangered";
-            ctx.lineWidth=2;
-            ctx.rect(12.5+i*100,330,75,randomNums * -1);
+            ctx.strokeStyle = "transparent";
+            ctx.fillStyle = "orangered";
+            ctx.lineWidth = 2;
+            ctx.rect(12.5 + i * 100, 330, 75, randomNums * -1);
             ctx.stroke();
             ctx.fill();
+
             // Show numbers above columns
             ctx.beginPath();
-            ctx.fillStyle="black";
-            ctx.fillText(`${randomNums}`,34.5+i*100,randomNums * -1 + 320);
+            ctx.fillStyle = "black";
+            ctx.fillText(`${randomNums}`, 34.5 + i * 100, randomNums * -1 + 320);
             ctx.stroke();
             ctx.fill();
             total += randomNums // this is the average
@@ -75,12 +78,10 @@ function createChart(min,max){
         // Display average
         ctx.beginPath();
         ctx.font = "18px Poppins";
-        ctx.fillText(`Average Grade: ${total/5}`, 155, 425);
+        ctx.fillText(`Average Class Graduation Size: ${total / 5}`, 90, 425);
         ctx.stroke();
         ctx.fill();
     }
-
-
 
     // Set canvas width and height
     ctx.canvas.width = 500;
@@ -91,30 +92,30 @@ function createChart(min,max){
 
     // Display graph title
     ctx.font = "24px Poppins";
-    ctx.fillText(`Test Grades`, 180, 75);
+    ctx.fillText(`# Students Graduated Per Year`, 65, 75);
 
     // Display graph column titles 1-5
-    for (let i=0;i<5;i++) {
+    for (let i = 0; i < 5; i++) {
         ctx.font = "16px Poppins";
-        ctx.fillText(`Grade ${i+1}`, 18.5+i*100, 350);
+        ctx.fillText(`${i + 2015}`, 30.5 + i * 100, 350);
     }
 
     randomNumsGen();
 }
 
 // Setting up button function
-(function(){
-    document.querySelector("#show-graph-btn").addEventListener("click", function(e) {
+(function () {
+    document.querySelector("#show-graph-btn").addEventListener("click", function (e) {
         // Validating form fields
-        if(document.querySelector("#min-num-input").reportValidity() &&
-            document.querySelector("#max-num-input").reportValidity()){
+        if (document.querySelector("#min-num-input").reportValidity() &&
+            document.querySelector("#max-num-input").reportValidity()) {
 
             // Store input to variables
             let minNumInput = parseInt(document.querySelector("#min-num-input").value);
             let maxNumInput = parseInt(document.querySelector("#max-num-input").value);
 
             // min/max validation to make sure min is not greater than max value
-            if(minNumInput >= maxNumInput){
+            if (minNumInput >= maxNumInput) {
                 document.querySelector("#success-msg").style.display = "none";
 
                 document.querySelector("#min-max-error-msg").style.display = "block";
@@ -125,8 +126,7 @@ function createChart(min,max){
 
                 // Change button text to "Recalculate"
                 document.querySelector("#show-graph-btn").value = "Calculate Graph";
-            }
-            else{
+            } else {
                 document.querySelector("#success-msg").style.display = "block";
 
                 // Change button text to "Recalculate"
@@ -142,7 +142,7 @@ function createChart(min,max){
                 document.querySelector("#graph-results-container").style.display = "block";
 
                 // Call createChart function
-                createChart(minNumInput,maxNumInput);
+                createChart(minNumInput, maxNumInput);
             }
         }
     });

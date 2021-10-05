@@ -13,48 +13,50 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Assignment: Data Visualization</h1>
-            <h2>Introduction to Development II (DEV2001-O)</h2>
-            <p>Created by <a href="https://www.iamaaronvarga.com" target="_blank">Aaron Varga</a> with HTML, CSS, and
-                JavaScript.</p>
+<header>
+    <div class="container">
+        <h1>Data Visualization</h1>
+        <h2>Introduction to Development II (DEV2001-O)</h2>
+        <p>Created by <a href="https://www.iamaaronvarga.com" target="_blank">Aaron Varga</a> with HTML, CSS, and
+            JavaScript.</p>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="form-instructions">
+            <p>Please fill out the form below and click the "Calculate Graph" button to view the results of how many
+                students graduated over a five-year span.</p>
         </div>
-    </header>
-    <main>
-        <div class="container">
-            <div>
-                <p>*Please fill out the form below and click the "Show Graph" button to view the results.</p>
-            </div>
-            <form id="min-max-num-form">
-                <label for="min-num-input">Minimum Number:</label>
-                <input id="min-num-input" type="number" min="1" max="199" step="1" required>
-                <label for="max-num-input">Maximum Number:</label>
-                <input id="max-num-input" type="number" min="2" max="200" step="1" required>
-                <input id="show-graph-btn" type="button" value="Calculate Graph">
-            </form>
-            <div>
-                <p id="min-max-error-msg">Error: Please make sure your minimum number value is less than your maximum number value and try again.</p>
-                <p id="success-msg">Successful calculation!</p>
-            </div>
-            <div class="graph-title">
-                <h3>Output:</h3>
-            </div>
-            <div id="graph-preview-box">
-                <p>Graph results will display here.</p>
-            </div>
-            <div id="graph-results-container">
-                <canvas id="canvas-graph"></canvas>
-            </div>
+        <form id="min-max-num-form">
+            <label for="min-num-input">Minimum Number:</label>
+            <input id="min-num-input" type="number" min="1" max="199" step="1" required>
+            <label for="max-num-input">Maximum Number:</label>
+            <input id="max-num-input" type="number" min="2" max="200" step="1" required>
+            <input id="show-graph-btn" type="button" value="Calculate Graph">
+        </form>
+        <div>
+            <p id="min-max-error-msg">Error: Please make sure your minimum number value is less than your maximum number
+                value and try again.</p>
+            <p id="success-msg">Successful calculation!</p>
         </div>
-    </main>
-    <footer>
-        <div class="container">
-            <div>
-                <p>2021 Web Development (BS) - Full Sail University</p>
-            </div>
+        <div class="graph-title">
+            <h3>Output:</h3>
         </div>
-    </footer>
+        <div id="graph-preview-box">
+            <p>Graph results will display here.</p>
+        </div>
+        <div id="graph-results-container">
+            <canvas id="canvas-graph"></canvas>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <div>
+            <p>2021 Web Development (BS) - Full Sail University</p>
+        </div>
+    </div>
+</footer>
 <script src="js/script.js" defer></script>
 </body>
 </html>

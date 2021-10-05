@@ -16,6 +16,7 @@ header {
 h1 {
     margin: 0;
     font-size: 2.5rem;
+    color: orangered;
 }
 
 h2 {
@@ -23,9 +24,17 @@ h2 {
     font-size: 1.5rem;
 }
 
+p {
+    line-height: 1.5rem;
+}
+
 a {
     color: blue;
     text-decoration: underline;
+}
+
+.form-instructions {
+    margin: 0 0 2rem 0;
 }
 
 form {
@@ -97,7 +106,7 @@ form input, form label {
 footer {
     padding: 2rem 0;
     background: orangered;
-    color: #eeeeee;
+    color: white;
     margin: 4rem 0 0 0;
 }
 
