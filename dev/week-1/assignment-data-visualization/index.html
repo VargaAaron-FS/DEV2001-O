@@ -27,14 +27,18 @@
                 <p>*Please fill out the form below and click the "Show Graph" button to view the results.</p>
             </div>
             <form id="min-max-num-form">
-                <label for="min-num-input">Minimum Number</label>
+                <label for="min-num-input">Minimum Number:</label>
                 <input id="min-num-input" type="number" min="1" max="199" step="1" required>
-                <label for="max-num-input">Maximum Number</label>
+                <label for="max-num-input">Maximum Number:</label>
                 <input id="max-num-input" type="number" min="2" max="200" step="1" required>
-                <input id="show-graph-btn" type="button" value="Show Graph">
+                <input id="show-graph-btn" type="button" value="Calculate Graph">
             </form>
+            <div>
+                <p id="min-max-error-msg">Error: Please make sure your minimum number value is less than your maximum number value and try again.</p>
+                <p id="success-msg">Successful calculation!</p>
+            </div>
             <div class="graph-title">
-                <h3>Test Grades</h3>
+                <h3>Output:</h3>
             </div>
             <div id="graph-preview-box">
                 <p>Graph results will display here.</p>

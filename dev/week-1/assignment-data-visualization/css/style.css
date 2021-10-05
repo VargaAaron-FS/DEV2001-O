@@ -28,6 +28,50 @@ a {
     text-decoration: underline;
 }
 
+form {
+    display: flex;
+}
+
+form label {
+    font-weight: 700;
+}
+
+form input {
+    padding: .5rem .5rem;
+}
+
+form input, form label {
+    align-self: center;
+    margin-right: 1rem;
+}
+
+#show-graph-btn {
+    background: orangered;
+    padding: 1rem 2rem;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 2px solid orangered;
+    border-radius: .25rem;
+}
+
+#show-graph-btn:hover {
+    border: 2px solid orangered;
+    background: transparent;
+    color: orangered;
+    cursor: pointer;
+}
+
+#success-msg {
+    display: none;
+    color: green;
+}
+
+#min-max-error-msg {
+    display: none;
+    color: red;
+}
+
 .graph-title {
     margin: 2rem 0 0 0;
 }

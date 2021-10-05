@@ -69,8 +69,7 @@ function createChart(min,max){
             ctx.fillText(`${randomNums}`,34.5+i*100,randomNums * -1 + 320);
             ctx.stroke();
             ctx.fill();
-
-total += randomNums // this is the average
+            total += randomNums // this is the average
             // Average calc = (total/5),x,y
         }
         // Display average
@@ -114,18 +113,37 @@ total += randomNums // this is the average
             let minNumInput = parseInt(document.querySelector("#min-num-input").value);
             let maxNumInput = parseInt(document.querySelector("#max-num-input").value);
 
-            // Hide preview box
-            document.querySelector("#graph-preview-box").style.display = "none";
+            // min/max validation to make sure min is not greater than max value
+            if(minNumInput >= maxNumInput){
+                document.querySelector("#success-msg").style.display = "none";
 
-            // Show graph
-            document.querySelector("#graph-results-container").style.display = "block";
+                document.querySelector("#min-max-error-msg").style.display = "block";
 
-            // Call createChart function
-            createChart(minNumInput,maxNumInput);
+                document.querySelector("#graph-preview-box").style.display = "flex";
+
+                document.querySelector("#graph-results-container").style.display = "none";
+
+                // Change button text to "Recalculate"
+                document.querySelector("#show-graph-btn").value = "Calculate Graph";
+            }
+            else{
+                document.querySelector("#success-msg").style.display = "block";
+
+                // Change button text to "Recalculate"
+                document.querySelector("#show-graph-btn").value = "Recalculate Graph";
+
+                // Hide error msg if displayed
+                document.querySelector("#min-max-error-msg").style.display = "none";
+
+                // Hide preview box
+                document.querySelector("#graph-preview-box").style.display = "none";
+
+                // Show graph
+                document.querySelector("#graph-results-container").style.display = "block";
+
+                // Call createChart function
+                createChart(minNumInput,maxNumInput);
+            }
         }
     });
 })();
-
-// (function(){
-//     createGraph(ctx);
-// })();
