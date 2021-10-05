@@ -69,7 +69,7 @@ function createChart(min, max) {
             // Show numbers above columns
             ctx.beginPath();
             ctx.fillStyle = "black";
-            ctx.fillText(`${randomNums}`, 34.5 + i * 100, randomNums * -1 + 320);
+            ctx.fillText(`${randomNums}`, 38.5 + i * 100, randomNums * -1 + 320);
             ctx.stroke();
             ctx.fill();
             total += randomNums // this is the average
