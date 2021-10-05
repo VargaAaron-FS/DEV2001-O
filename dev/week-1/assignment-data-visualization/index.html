@@ -14,23 +14,42 @@
 </head>
 <body>
     <header>
-        <h1>Assignment: Data Visualization</h1>
-        <p>Created by <a href="https://www.iamaaronvarga.com" target="_blank">Aaron Varga</a> with HTML, CSS, and
-            JavaScript.</p>
+        <div class="container">
+            <h1>Assignment: Data Visualization</h1>
+            <h2>Introduction to Development II (DEV2001-O)</h2>
+            <p>Created by <a href="https://www.iamaaronvarga.com" target="_blank">Aaron Varga</a> with HTML, CSS, and
+                JavaScript.</p>
+        </div>
     </header>
     <main>
-        <form id="minMaxNumForm">
-            <label for="minNumInput">Minimum Number</label>
-            <input id="minNumInput" type="number" min="0" step="1" required>
-            <label for="maxNumInput">Maximum Number</label>
-            <input id="maxNumInput" type="number" min="0" step="1" required>
-            <input id="showGraphBtn" type="button" value="Show Graph">
-        </form>
-        <h2>Test Grades</h2>
-        <canvas id="canvas"></canvas>
+        <div class="container">
+            <div>
+                <p>*Please fill out the form below and click the "Show Graph" button to view the results.</p>
+            </div>
+            <form id="min-max-num-form">
+                <label for="min-num-input">Minimum Number</label>
+                <input id="min-num-input" type="number" min="1" max="199" step="1" required>
+                <label for="max-num-input">Maximum Number</label>
+                <input id="max-num-input" type="number" min="2" max="200" step="1" required>
+                <input id="show-graph-btn" type="button" value="Show Graph">
+            </form>
+            <div class="graph-title">
+                <h3>Test Grades</h3>
+            </div>
+            <div id="graph-preview-box">
+                <p>Graph results will display here.</p>
+            </div>
+            <div id="graph-results-container">
+                <canvas id="canvas-graph"></canvas>
+            </div>
+        </div>
     </main>
     <footer>
-        Footer text goes here.
+        <div class="container">
+            <div>
+                <p>2021 Web Development (BS) - Full Sail University</p>
+            </div>
+        </div>
     </footer>
 <script src="js/script.js" defer></script>
 </body>

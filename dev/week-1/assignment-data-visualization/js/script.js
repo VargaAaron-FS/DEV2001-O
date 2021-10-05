@@ -44,30 +44,88 @@ Submission
 Archive your entire project folder and upload here. Make sure your name is commented at the top of your HTML file.
  */
 
-(function(){
-    console.log("Canvas Demo");
+// Setting up canvas
+function createChart(min,max){
     // Setup variables
-    const canvas = document.querySelector("canvas");
+    const canvas = document.querySelector("#canvas-graph");
     const ctx = canvas.getContext("2d");
 
-    // Set width and height
+    function randomNumsGen() {
+        let total = 0;
+        let randomNums = 0;
+        for (let i=0;i<5;i++) {
+            randomNums = Math.floor(Math.random() * (max - min) + 1);
+            // Draw random bar graph columns
+            ctx.beginPath();
+            ctx.strokeStyle="transparent";
+            ctx.fillStyle="orangered";
+            ctx.lineWidth=2;
+            ctx.rect(12.5+i*100,330,75,randomNums * -1);
+            ctx.stroke();
+            ctx.fill();
+            // Show numbers above columns
+            ctx.beginPath();
+            ctx.fillStyle="black";
+            ctx.fillText(`${randomNums}`,34.5+i*100,randomNums * -1 + 320);
+            ctx.stroke();
+            ctx.fill();
+
+total += randomNums // this is the average
+            // Average calc = (total/5),x,y
+        }
+        // Display average
+        ctx.beginPath();
+        ctx.font = "18px Poppins";
+        ctx.fillText(`Average Grade: ${total/5}`, 155, 425);
+        ctx.stroke();
+        ctx.fill();
+    }
+
+
+
+    // Set canvas width and height
     ctx.canvas.width = 500;
     ctx.canvas.height = 500;
 
-    // Set canvas border
-    ctx.canvas.style.border = "2px solid black";
+    // Set canvas background color
+    ctx.canvas.style.backgroundColor = "#eeeeee";
 
-    // Draw
-    ctx.strokeStyle = "#FF0000";  //red line
-    ctx.beginPath();
-    ctx.lineWidth = 2;     //set width of line
-    ctx.moveTo(0,250);     //start pin here
-    ctx.lineTo(500,250);   //move pin to here
-    ctx.stroke();          //render the line
-    ctx.beginPath();       //start a new line
-    ctx.strokeStyle = "#00ff00";  //green line
-    ctx.moveTo(250,0);
-    ctx.lineTo(250,500);
-    ctx.stroke();
-    ctx.closePath();
+    // Display graph title
+    ctx.font = "24px Poppins";
+    ctx.fillText(`Test Grades`, 180, 75);
+
+    // Display graph column titles 1-5
+    for (let i=0;i<5;i++) {
+        ctx.font = "16px Poppins";
+        ctx.fillText(`Grade ${i+1}`, 18.5+i*100, 350);
+    }
+
+    randomNumsGen();
+}
+
+// Setting up button function
+(function(){
+    document.querySelector("#show-graph-btn").addEventListener("click", function(e) {
+        // Validating form fields
+        if(document.querySelector("#min-num-input").reportValidity() &&
+            document.querySelector("#max-num-input").reportValidity()){
+
+            // Store input to variables
+            let minNumInput = parseInt(document.querySelector("#min-num-input").value);
+            let maxNumInput = parseInt(document.querySelector("#max-num-input").value);
+
+            // Hide preview box
+            document.querySelector("#graph-preview-box").style.display = "none";
+
+            // Show graph
+            document.querySelector("#graph-results-container").style.display = "block";
+
+            // Call createChart function
+            createChart(minNumInput,maxNumInput);
+        }
+    });
 })();
+
+// (function(){
+//     createGraph(ctx);
+// })();
