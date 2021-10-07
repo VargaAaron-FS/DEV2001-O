@@ -52,8 +52,8 @@ class Pie{
     }
 }
 
-// Create function (for later use in Question 5)
-function getEvenNumbers(testArray){
+// Create function in arrow function syntax (for later use in Question 5)
+const getEvenNumbers = (testArray) =>{
     // For loop to loop through the entire array
     for (let i = 0; i < testArray.length; i++){
         // Condition to find all even numbers

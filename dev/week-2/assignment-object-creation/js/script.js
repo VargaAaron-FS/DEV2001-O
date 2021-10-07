@@ -55,4 +55,61 @@ Output
 Information about all the objects created from the form is displayed in the HTML and styled with clean CSS. Make sure the result of that method requirement on the object is also shown. The data must make sense and well formatted.
  */
 
-// Start here.
+class User{
+    constructor(name,email,username,password) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+
+        console.log("User created!");
+    }
+}
+
+class Main{
+    constructor() {
+        console.log("Main created!");
+
+        // Empty array awaiting future data
+        this.users = [];
+
+        // Button click events
+        document.querySelector("#add-btn").addEventListener("click", (e)=>this.add(e));
+        document.querySelector("#display-btn").addEventListener("click", (e)=>this.display(e));
+    }
+    add(e){
+        // Conditional to make sure passwords match before adding user to array
+        if(document.querySelector("#password").value === document.querySelector("#confirm-password").value){
+            console.log("User added!");
+
+            // Assigning form input values to variables
+            let name = document.querySelector("#name").value;
+            let email = document.querySelector("#email").value;
+            let username = document.querySelector("#username").value;
+            let password = document.querySelector("#password").value;
+
+            // Store new user in variable
+            let user = new User(name,email,username,password);
+
+            // Add or "push" new user to array to be stored
+            this.users.push(user);
+        }
+        else{
+            // Error message if passwords do not match
+            console.log("Please make sure your passwords match.");
+        }
+    }
+    display(e){
+        console.log("Content displayed!");
+
+        for (let i = 0; i < this.users.length; i++){
+            console.log(this.users[i]);
+        }
+    }
+}
+
+// IIFE arrow function
+(()=>{
+    // Instantiate Main class
+    const main = new Main();
+})();
