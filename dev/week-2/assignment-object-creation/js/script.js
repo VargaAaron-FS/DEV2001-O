@@ -61,49 +61,85 @@ class User{
         this.email = email;
         this.username = username;
         this.password = password;
-
-        console.log("User created!");
     }
 }
 
 class Main{
     constructor() {
-        console.log("Main created!");
-
         // Empty array awaiting future data
         this.users = [];
 
         // Button click events
         document.querySelector("#add-btn").addEventListener("click", (e)=>this.add(e));
+
         document.querySelector("#display-btn").addEventListener("click", (e)=>this.display(e));
     }
     add(e){
         // Conditional to make sure passwords match before adding user to array
-        if(document.querySelector("#password").value === document.querySelector("#confirm-password").value){
-            console.log("User added!");
+        if(document.querySelector("#name").reportValidity() &&
+            document.querySelector("#email").reportValidity() &&
+            document.querySelector("#username").reportValidity() &&
+            document.querySelector("#password").reportValidity() &&
+            document.querySelector("#confirm-password").reportValidity()){
 
-            // Assigning form input values to variables
-            let name = document.querySelector("#name").value;
-            let email = document.querySelector("#email").value;
-            let username = document.querySelector("#username").value;
-            let password = document.querySelector("#password").value;
+            if(document.querySelector("#password").value === document.querySelector("#confirm-password").value){
+                // Assigning form input values to variables
+                let name = document.querySelector("#name").value;
+                let email = document.querySelector("#email").value;
+                let username = document.querySelector("#username").value;
+                let password = document.querySelector("#password").value;
 
-            // Store new user in variable
-            let user = new User(name,email,username,password);
+                // Store new user in variable
+                let user = new User(name,email,username,password);
 
-            // Add or "push" new user to array to be stored
-            this.users.push(user);
-        }
-        else{
-            // Error message if passwords do not match
-            console.log("Please make sure your passwords match.");
-        }
+                // Add or "push" new user to array to be stored
+                this.users.push(user);
+
+                // Create something where it adds one more to a number next to "User Database (#)"
+                for (let i = 0; i < this.users.length; i++){
+                    document.querySelector("#number-of-users-created").innerHTML = `(${1+i})`;
+                }
+
+                // Do not show error message if passwords do not match
+                document.querySelector("#password-confirmation-error-msg").style.display = "none";
+
+                // Show successful user creation message
+                document.querySelector("#user-created-successfully-msg").style.display = "block";
+
+                // Show instructions after add
+                document.querySelector("#instructions-after-add").style.display = "block";
+
+                // Reset all fields on add button click for next user creation
+                document.querySelector("#name").value = "";
+                document.querySelector("#email").value = "";
+                document.querySelector("#username").value = "";
+                document.querySelector("#password").value = "";
+                document.querySelector("#confirm-password").value = "";
+            }
+            else{
+                // Do not show successful user creation message
+                document.querySelector("#user-created-successfully-msg").style.display = "none";
+
+                // Do not show instructions after add
+                document.querySelector("#instructions-after-add").style.display = "none";
+
+                // Show error message if passwords do not match
+                document.querySelector("#password-confirmation-error-msg").style.display = "block";
+            }
+            }
     }
     display(e){
-        console.log("Content displayed!");
-
         for (let i = 0; i < this.users.length; i++){
             console.log(this.users[i]);
+
+            // Do not show successful user creation message
+            document.querySelector("#user-created-successfully-msg").style.display = "none";
+
+            // Do not show instructions after add
+            document.querySelector("#instructions-after-add").style.display = "none";
+
+            // Do not show error message if passwords do not match
+            document.querySelector("#password-confirmation-error-msg").style.display = "none";
         }
     }
 }
