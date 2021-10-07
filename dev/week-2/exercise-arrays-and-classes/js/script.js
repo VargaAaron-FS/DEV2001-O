@@ -36,6 +36,34 @@ let evenNumbers = getEvenNumbers(testArray);
 console.log(evenNumbers);   // displays [2, 6, 10, 14] as an array
  */
 
+// Create class (for later use in Question 4)
+class Pie{
+    constructor(type,quantity,cost) {
+        console.log("Welcome to my pie shop! What can I get for you?")
+        this.type = type;
+        this.quantity = quantity;
+        this.cost = cost;
+    }
+    order(){
+        console.log(`I would like ${this.quantity} ${this.type} pies, please!`);
+    }
+    total(){
+        console.log(`Your total cost for your pie order is $${this.cost*this.quantity}.`);
+    }
+}
+
+// Create function (for later use in Question 5)
+function getEvenNumbers(testArray){
+    // For loop to loop through the entire array
+    for (let i = 0; i < testArray.length; i++){
+        // Condition to find all even numbers
+        if(testArray[i] % 2 === 0){
+            console.log(testArray[i]);
+        }
+    }
+}
+
+// IIFE arrow function for answers/output
 (()=>{
     // Question 1 -
     console.log("Question 1:");
@@ -92,20 +120,10 @@ console.log(evenNumbers);   // displays [2, 6, 10, 14] as an array
     console.log("Create any class containing 3 methods (including the constructor) and 2 properties. Make sure you are also instantiating that class.");
     console.log("Output:");
 
-    class Pie{
-        constructor(type,quantity) {
-            console.log("Welcome to my pie shop! What can I get for you?")
-            this.type = type;
-            this.quantity = quantity;
-        }
-        order(){
-            console.log(`I would like ${this.quantity} ${this.type} pies, please!`);
-        }
-    }
-
-    const myPieOrder = new Pie("apple",5);
+    const myPieOrder = new Pie("apple",5, 10);
 
     myPieOrder.order();
+    myPieOrder.total();
 
     // Blank console log to separate questions
     console.log("");
@@ -117,15 +135,6 @@ console.log(evenNumbers);   // displays [2, 6, 10, 14] as an array
 
     // Create array
     let testArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-
-    // Create function
-    function getEvenNumbers(){
-        for (let i = 0; i < testArray.length; i++){
-            if(testArray[i] % 2 === 0){
-                console.log(testArray[i]);
-            }
-        }
-    }
 
     // Call function to get even numbers from array
     getEvenNumbers(testArray);
