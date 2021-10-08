@@ -35,7 +35,7 @@ a {
 }
 
 #user-registration-form {
-    width: calc(100% - 4rem);
+    width: calc(100% - 4rem - 4px);
     padding: 2rem;
     background: #eeeeee;
     border: 2px solid #eeeeee;
@@ -47,7 +47,7 @@ a {
     flex-direction: column;
 }
 
-#password-confirmation-error-msg {
+#password-confirmation-error-msg, #no-users-created-error-msg {
     display: none;
     color: red;
 }
@@ -83,7 +83,7 @@ input[type=button], input[type=submit] {
 }
 
 .form-output {
-    width: calc(100% - 4rem);
+    width: calc(100% - 4rem - 4px);
     border: 2px solid #eeeeee;
     padding: 2rem;
 }
@@ -93,6 +93,10 @@ input[type=button], input[type=submit] {
     width: 500px;
     margin: 0 auto;
     display: flex;
+}
+
+#user-database {
+    display: none;
 }
 
 /* Breakpoints (Mobile-First) */

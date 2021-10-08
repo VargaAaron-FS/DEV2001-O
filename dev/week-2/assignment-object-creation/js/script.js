@@ -109,6 +109,9 @@ class Main{
                 // Do not show error message if passwords do not match
                 document.querySelector("#password-confirmation-error-msg").style.display = "none";
 
+                // Do not show no users created error message
+                document.querySelector("#no-users-created-error-msg").style.display = "none";
+
                 // Show successful user creation message
                 document.querySelector("#user-created-successfully-msg").style.display = "block";
 
@@ -126,19 +129,30 @@ class Main{
                 // Do not show successful user creation message
                 document.querySelector("#user-created-successfully-msg").style.display = "none";
 
-                // Do not show instructions after add
-                document.querySelector("#instructions-after-add").style.display = "none";
-
-                // Show error message if passwords do not match
+                // Show error message if passwords do not match error message
                 document.querySelector("#password-confirmation-error-msg").style.display = "block";
+
+                // Do not show no users created error message
+                document.querySelector("#no-users-created-error-msg").style.display = "none";
             }
             }
     }
     display(e){
+        // Make something say you need to create a user first if they click this button before creating at least 1 user!
+        if(this.users.length < 1){
+            // Show error message for no users created yet
+            document.querySelector("#no-users-created-error-msg").style.display = "block";
+
+            // Do not show error message if passwords do not match error message
+            document.querySelector("#password-confirmation-error-msg").style.display = "none";
+        }
+
+        // Loop through and display users
         for (let i = 0; i < this.users.length; i++){
             console.log(this.users[i]);
+            console.log(this.users[i].name);
 
-            // Make something say you need to create a user first if they click this button before creating 1 user!
+            // Figure out how to create new html elements to insert data into each time
 
             // Remove initial instructions
             document.querySelector("#initial-instructions").style.display = "none";
