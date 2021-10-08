@@ -76,11 +76,14 @@ class Main{
     }
     add(e){
         // Conditional to make sure passwords match before adding user to array
-        if(document.querySelector("#name").reportValidity() &&
-            document.querySelector("#email").reportValidity() &&
-            document.querySelector("#username").reportValidity() &&
-            document.querySelector("#password").reportValidity() &&
-            document.querySelector("#confirm-password").reportValidity()){
+        // How to validate ALL at once?
+        if(document.querySelector("#name").checkValidity() &&
+            document.querySelector("#email").checkValidity() &&
+            document.querySelector("#username").checkValidity() &&
+            document.querySelector("#password").checkValidity() &&
+            document.querySelector("#confirm-password").checkValidity()){
+
+            e.preventDefault();
 
             if(document.querySelector("#password").value === document.querySelector("#confirm-password").value){
                 // Assigning form input values to variables
@@ -99,6 +102,9 @@ class Main{
                 for (let i = 0; i < this.users.length; i++){
                     document.querySelector("#number-of-users-created").innerHTML = `(${1+i})`;
                 }
+
+                // Remove initial instructions
+                document.querySelector("#initial-instructions").style.display = "none";
 
                 // Do not show error message if passwords do not match
                 document.querySelector("#password-confirmation-error-msg").style.display = "none";
@@ -131,6 +137,11 @@ class Main{
     display(e){
         for (let i = 0; i < this.users.length; i++){
             console.log(this.users[i]);
+
+            // Make something say you need to create a user first if they click this button before creating 1 user!
+
+            // Remove initial instructions
+            document.querySelector("#initial-instructions").style.display = "none";
 
             // Do not show successful user creation message
             document.querySelector("#user-created-successfully-msg").style.display = "none";

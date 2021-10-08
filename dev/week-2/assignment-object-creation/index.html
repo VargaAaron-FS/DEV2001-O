@@ -25,6 +25,7 @@
         <div class="container">
             <div class="flex-container">
                 <form id="user-registration-form">
+                    <h3>Add/Display Users</h3>
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" required>
@@ -51,12 +52,16 @@
                     </div>
                     <p id="password-confirmation-error-msg">Your passwords do not match. Please try again.</p>
                     <div class="form-group">
-                        <input type="button" id="add-btn" value="Add">
+                        <input type="submit" id="add-btn" value="Add">
                         <input type="button" id="display-btn" value="Display">
                     </div>
                 </form>
                 <div class="form-output">
                     <h3>User Database <span id="number-of-users-created"></span></h3>
+                    <div id="initial-instructions">
+                        <p>Once you have added at least one user, you may click the "Display" button to view all newly created users here.</p>
+                        <img id="users-img" src="img/undraw_Team_re_0bfe.png" alt="Users Illustration">
+                    </div>
                     <p id="user-created-successfully-msg">New user has been successfully added.</p>
                     <p id="instructions-after-add">You may add more users or click the "Display" button to view the users you have already created.</p>
                 </div>
