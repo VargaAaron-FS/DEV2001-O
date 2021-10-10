@@ -107,11 +107,19 @@ input[type=button], input[type=submit] {
 }
 
 .output-data {
-    padding: 0 .5rem 1.5rem .5rem;
+    padding: 0 .5rem 1rem .5rem;
 }
 
 .user-divider {
     margin: 0 0 1.5rem 0;
+}
+
+.user-number {
+    padding: .5rem;
+    color: white;
+    background: black;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
 }
 
 /* Breakpoints (Mobile-First) */

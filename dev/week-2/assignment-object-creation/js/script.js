@@ -62,9 +62,9 @@ class User{
         this.username = username;
         this.password = password;
     }
-    userNumber(){
+    userNumber(number){
         // Assign the user a number based on what order they were created starting with #1
-        return `User #${i}`;
+        this.number = number;
     }
 }
 
@@ -72,6 +72,8 @@ class Main{
     constructor() {
         // Empty array awaiting future data
         this.users = [];
+
+        this.usersNumber = [];
 
         // Button click events
         document.querySelector("#add-btn").addEventListener("click", (e)=>this.add(e));
@@ -106,6 +108,26 @@ class Main{
                 for (let i = 0; i < this.users.length; i++){
                     document.querySelector("#number-of-users-created").innerHTML = `(${1+i})`;
                 }
+
+                // Create user number variable
+                let userNumber = 0;
+
+                // Loop through user number and assign
+                for (let i = 0; i < this.users.length; i++){
+                    userNumber+=i;
+                }
+
+                const userNumberDiv = document.createElement("div");
+                userNumberDiv.setAttribute("class","user-number");
+
+                // and give them some content
+                let newContentUserNumber = document.createTextNode(`User #${userNumber+1} -`);
+
+                // add text nodes to the newly created divs
+                userNumberDiv.appendChild(newContentUserNumber);
+
+                const currentDiv = document.getElementById("ref-div");
+                document.querySelector("#user-database").insertBefore(userNumberDiv, currentDiv);
 
                 // Add data into hidden HTML element(s) for display button later
                 // create a new div elements
@@ -163,7 +185,7 @@ class Main{
                 userDividerDiv.appendChild(newUserDivider);
 
                 // add the newly created elements and their content into the DOM
-                const currentDiv = document.getElementById("ref-div");
+                // const currentDiv = document.getElementById("ref-div");
                 document.querySelector("#user-database").insertBefore(nameLabelDiv, currentDiv);
                 document.querySelector("#user-database").insertBefore(nameOutputDiv, currentDiv);
 
@@ -227,8 +249,6 @@ class Main{
 
         // Loop through and display users
         for (let i = 0; i < this.users.length; i++){
-            console.log(this.users[i]);
-            console.log(this.users[i].name);
 
             // Figure out how to create new html elements to insert data into each time
             document.querySelector("#user-database").style.display = "block";
