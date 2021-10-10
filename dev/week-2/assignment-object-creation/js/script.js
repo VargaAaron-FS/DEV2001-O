@@ -62,6 +62,10 @@ class User{
         this.username = username;
         this.password = password;
     }
+    userNumber(){
+        // Assign the user a number based on what order they were created starting with #1
+        return `User #${i}`;
+    }
 }
 
 class Main{
@@ -76,7 +80,7 @@ class Main{
     }
     add(e){
         // Conditional to make sure passwords match before adding user to array
-        // How to validate ALL at once?
+        // How to validate ALL at once? If you have time!
         if(document.querySelector("#name").checkValidity() &&
             document.querySelector("#email").checkValidity() &&
             document.querySelector("#username").checkValidity() &&
@@ -103,8 +107,82 @@ class Main{
                     document.querySelector("#number-of-users-created").innerHTML = `(${1+i})`;
                 }
 
+                // Add data into hidden HTML element(s) for display button later
+                // create a new div elements
+                const nameLabelDiv = document.createElement("div");
+                nameLabelDiv.setAttribute("class","output-label");
+                const nameOutputDiv = document.createElement("div");
+                nameOutputDiv.setAttribute("class","output-data");
+
+                const emailLabelDiv = document.createElement("div");
+                emailLabelDiv.setAttribute("class","output-label");
+                const emailOutputDiv = document.createElement("div");
+                emailOutputDiv.setAttribute("class","output-data");
+
+                const usernameLabelDiv = document.createElement("div");
+                usernameLabelDiv.setAttribute("class","output-label");
+                const usernameOutputDiv = document.createElement("div");
+                usernameOutputDiv.setAttribute("class","output-data");
+
+                const passwordLabelDiv = document.createElement("div");
+                passwordLabelDiv.setAttribute("class","output-label");
+                const passwordOutputDiv = document.createElement("div");
+                passwordOutputDiv.setAttribute("class","output-data");
+
+                const userDividerDiv = document.createElement("hr");
+                userDividerDiv.setAttribute("class","user-divider");
+
+                // and give them some content
+                const newContentNameLabel = document.createTextNode(`Name:`);
+                const newContentNameOutput = document.createTextNode(`${name}`);
+
+                const newContentEmailLabel = document.createTextNode(`Email:`);
+                const newContentEmailOutput = document.createTextNode(`${email}`);
+
+                const newContentUsernameLabel = document.createTextNode(`Username:`);
+                const newContentUsernameOutput = document.createTextNode(`${username}`);
+
+                const newContentPasswordLabel = document.createTextNode(`Password:`);
+                const newContentPasswordOutput = document.createTextNode(`${password}`);
+
+                const newUserDivider = document.createTextNode("");
+
+                // add text nodes to the newly created divs
+                nameLabelDiv.appendChild(newContentNameLabel);
+                nameOutputDiv.appendChild(newContentNameOutput);
+
+                emailLabelDiv.appendChild(newContentEmailLabel);
+                emailOutputDiv.appendChild(newContentEmailOutput);
+
+                usernameLabelDiv.appendChild(newContentUsernameLabel);
+                usernameOutputDiv.appendChild(newContentUsernameOutput);
+
+                passwordLabelDiv.appendChild(newContentPasswordLabel);
+                passwordOutputDiv.appendChild(newContentPasswordOutput);
+
+                userDividerDiv.appendChild(newUserDivider);
+
+                // add the newly created elements and their content into the DOM
+                const currentDiv = document.getElementById("ref-div");
+                document.querySelector("#user-database").insertBefore(nameLabelDiv, currentDiv);
+                document.querySelector("#user-database").insertBefore(nameOutputDiv, currentDiv);
+
+                document.querySelector("#user-database").insertBefore(emailLabelDiv, currentDiv);
+                document.querySelector("#user-database").insertBefore(emailOutputDiv, currentDiv);
+
+                document.querySelector("#user-database").insertBefore(usernameLabelDiv, currentDiv);
+                document.querySelector("#user-database").insertBefore(usernameOutputDiv, currentDiv);
+
+                document.querySelector("#user-database").insertBefore(passwordLabelDiv, currentDiv);
+                document.querySelector("#user-database").insertBefore(passwordOutputDiv, currentDiv);
+
+                document.querySelector("#user-database").insertBefore(userDividerDiv, currentDiv);
+
                 // Remove initial instructions
                 document.querySelector("#initial-instructions").style.display = "none";
+
+                // Remove display users if more users are created so success/error message can show
+                document.querySelector("#user-database").style.display = "none";
 
                 // Do not show error message if passwords do not match
                 document.querySelector("#password-confirmation-error-msg").style.display = "none";
@@ -135,7 +213,7 @@ class Main{
                 // Do not show no users created error message
                 document.querySelector("#no-users-created-error-msg").style.display = "none";
             }
-            }
+        }
     }
     display(e){
         // Make something say you need to create a user first if they click this button before creating at least 1 user!
@@ -153,6 +231,11 @@ class Main{
             console.log(this.users[i].name);
 
             // Figure out how to create new html elements to insert data into each time
+            document.querySelector("#user-database").style.display = "block";
+
+            // Show user database content
+            document.querySelector("#user-database").style.display = "block";
+
 
             // Remove initial instructions
             document.querySelector("#initial-instructions").style.display = "none";

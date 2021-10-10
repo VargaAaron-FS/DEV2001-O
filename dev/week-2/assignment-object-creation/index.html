@@ -53,11 +53,11 @@
                     <p id="password-confirmation-error-msg">Your passwords do not match. Please try again.</p>
                     <p id="no-users-created-error-msg">You have not created any users yet.</p>
                     <div class="form-group">
-                        <input type="submit" id="add-btn" value="Add">
-                        <input type="button" id="display-btn" value="Display">
+                        <input type="submit" id="add-btn" value="Add User">
+                        <input type="button" id="display-btn" value="Display Users">
                     </div>
                 </form>
-                <div class="form-output">
+                <div id="form-output">
                     <h3>User Database <span id="number-of-users-created"></span></h3>
                     <div id="initial-instructions">
                         <p>Once you have added at least one user, you may click the "Display" button to view all newly created users here.</p>
@@ -66,7 +66,7 @@
                     <p id="user-created-successfully-msg">New user has been successfully added.</p>
                     <p id="instructions-after-add">You may add more users or click the "Display" button to view the users you have already created.</p>
                     <div id="user-database">
-
+                        <div id="ref-div"></div>
                     </div>
                 </div>
             </div>
@@ -79,6 +79,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/utility.js" defer></script>
     <script src="js/script.js" defer></script>
 </body>
 </html>
