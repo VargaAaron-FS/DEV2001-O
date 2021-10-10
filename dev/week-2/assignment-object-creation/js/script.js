@@ -62,9 +62,8 @@ class User{
         this.username = username;
         this.password = password;
     }
-    userNumber(number){
-        // Assign the user a number based on what order they were created starting with #1
-        this.number = number;
+    confirmation(){
+        // Use confirmation/success message used later to go in here and call from this method if possible
     }
 }
 
@@ -72,8 +71,6 @@ class Main{
     constructor() {
         // Empty array awaiting future data
         this.users = [];
-
-        this.usersNumber = [];
 
         // Button click events
         document.querySelector("#add-btn").addEventListener("click", (e)=>this.add(e));
