@@ -9,6 +9,6 @@ class Utility{
 
     }
     static(){
-
+        // Totals the length of any array (to return how many users have been made in total for this project)
     }
 }

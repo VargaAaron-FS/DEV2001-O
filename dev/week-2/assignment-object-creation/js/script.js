@@ -62,7 +62,7 @@ class User{
         this.username = username;
         this.password = password;
     }
-    confirmation(){
+    notification(){
         // Use confirmation/success message used later to go in here and call from this method if possible
     }
 }
@@ -77,6 +77,7 @@ class Main{
 
         document.querySelector("#display-btn").addEventListener("click", (e)=>this.display(e));
     }
+
     add(e){
         // Conditional to make sure passwords match before adding user to array
         // How to validate ALL at once? If you have time!
@@ -221,6 +222,11 @@ class Main{
                 document.querySelector("#username").value = "";
                 document.querySelector("#password").value = "";
                 document.querySelector("#confirm-password").value = "";
+
+                // To re-focus back onto the first form input field "Name" so it is easier to continue adding people without having to click again
+                (function () { // Change this to arrow function
+                    document.querySelector("#name").focus();
+                })();
             }
             else{
                 // Do not show successful user creation message
