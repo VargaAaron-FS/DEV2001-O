@@ -62,8 +62,9 @@ class User{
         this.username = username;
         this.password = password;
     }
-    notification(){
+    success(){
         // Use confirmation/success message used later to go in here and call from this method if possible
+        document.querySelector("#user-created-successfully-msg").style.display = "block";
     }
 }
 
@@ -99,12 +100,15 @@ class Main{
                 // Store new user in variable
                 let user = new User(name,email,username,password);
 
+                user.success();
+
                 // Add or "push" new user to array to be stored
                 this.users.push(user);
 
                 // Create something where it adds one more to a number next to "User Database (#)"
                 for (let i = 0; i < this.users.length; i++){
-                    document.querySelector("#number-of-users-created").innerHTML = `(${1+i})`;
+                    // Calling my Utility class here to calculate the length of my array
+                    document.querySelector("#number-of-users-created").innerHTML = `(${Utility.lengthOfArray(this.users)})`;
                 }
 
                 // Create user number variable
@@ -211,7 +215,8 @@ class Main{
                 document.querySelector("#no-users-created-error-msg").style.display = "none";
 
                 // Show successful user creation message
-                document.querySelector("#user-created-successfully-msg").style.display = "block";
+                // document.querySelector("#user-created-successfully-msg").style.display = "block";
+                user.success();
 
                 // Show instructions after add
                 document.querySelector("#instructions-after-add").style.display = "block";
@@ -224,7 +229,7 @@ class Main{
                 document.querySelector("#confirm-password").value = "";
 
                 // To re-focus back onto the first form input field "Name" so it is easier to continue adding people without having to click again
-                (function () { // Change this to arrow function
+                (()=>{
                     document.querySelector("#name").focus();
                 })();
             }
