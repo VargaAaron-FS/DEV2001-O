@@ -100,8 +100,6 @@ class Main{
                 // Store new user in variable
                 let user = new User(name,email,username,password);
 
-                user.success();
-
                 // Add or "push" new user to array to be stored
                 this.users.push(user);
 
@@ -111,19 +109,12 @@ class Main{
                     document.querySelector("#number-of-users-created").innerHTML = `(${Utility.lengthOfArray(this.users)})`;
                 }
 
-                // Create user number variable
-                let userNumber = 0;
-
-                // Loop through user number and assign
-                for (let i = 0; i < this.users.length; i++){
-                    userNumber+=i;
-                }
-
                 const userNumberDiv = document.createElement("div");
                 userNumberDiv.setAttribute("class","user-number");
 
                 // and give them some content
-                let newContentUserNumber = document.createTextNode(`User #${userNumber+1} -`);
+                // Calling Utility class here again for adding length of an array to HTML
+                let newContentUserNumber = document.createTextNode(`User #${Utility.lengthOfArray(this.users)} -`);
 
                 // add text nodes to the newly created divs
                 userNumberDiv.appendChild(newContentUserNumber);
