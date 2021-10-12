@@ -98,7 +98,7 @@ class PartTime extends Employee{
         console.log("PartTime Employee created!");
     }
     calculatePay(){
-
+        console.log(this.hours*this.payRate*52);
     }
 }
 
@@ -110,13 +110,25 @@ class FullTime extends Employee{
         console.log("FullTime Employee created!");
     }
     calculatePay(){
-
+        console.log((40*this.payRate*52)-1000);
     }
 }
 
 class Main{
     constructor() {
         console.log("Main created!");
+    }
+    addEmployee(){
+
+    }
+    removeEmployee(){
+
+    }
+    editEmployee(){
+
+    }
+    displayEmployees(){
+
     }
 }
 
