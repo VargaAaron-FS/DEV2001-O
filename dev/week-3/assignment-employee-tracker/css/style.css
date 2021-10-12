@@ -1,5 +1,14 @@
 html {
+    font-family: 'Noto Sans Mono', monospace;
+}
 
+.container {
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+a {
+    color: blue;
 }
 
 /* Breakpoints (Mobile-First) */
