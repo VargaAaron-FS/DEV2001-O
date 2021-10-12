@@ -9,6 +9,50 @@ html {
 
 a {
     color: blue;
+    text-decoration: none;
+}
+
+nav {
+    margin: 2rem 0;
+}
+
+nav a {
+    border: 2px solid transparent;
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+}
+
+a#add-employee-btn {
+    color: white;
+    background: green;
+}
+
+a#add-employee-btn:hover {
+    color: green;
+    border: 2px solid green;
+    background: transparent;
+}
+
+a#remove-employee-btn {
+    color: white;
+    background: red;
+}
+
+a#remove-employee-btn:hover {
+    color: red;
+    background: transparent;
+    border: 2px solid red;
+}
+
+a#edit-employee-btn {
+    color: white;
+    background: black;
+}
+
+a#edit-employee-btn:hover {
+    color: black;
+    border: 2px solid black;
+    background: transparent;
 }
 
 /* Breakpoints (Mobile-First) */
