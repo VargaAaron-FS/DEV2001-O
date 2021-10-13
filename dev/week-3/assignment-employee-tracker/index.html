@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employee Tracker</title>
+    <title>Assignment: Employee Tracker by Aaron Varga</title>
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,37 +32,37 @@
                     <a href="#" id="edit-employee-btn"><i class="fas fa-edit"></i><span class="button-titles"> Edit</span></a>
                 </div>
             </nav>
-            <div id="add-employee-form-popup">
-                <form id="add-employee-form">
-                    <div class="form-group">
-                        <label for="add-name">Name:</label>
-                        <input id="add-name" type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="add-age">Age:</label>
-                        <input id="add-age" type="number" min="1" max="120" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="add-payrate">Pay Rate:</label>
-                        <input id="add-payrate" type="number" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" id="add-submit-btn" value="Add">
-                    </div>
-                </form>
-            </div>
-            <div id="remove-employee-form-popup">
-                <form id="remove-employee-form">
-
-                </form>
-            </div>
-            <div id="edit-employee-form-popup">
-                <form id="edit-employee-form">
-
-                </form>
-            </div>
         </div>
     </header>
+    <div id="add-employee-form-popup">
+        <form id="add-employee-form">
+            <div class="form-group">
+                <label for="add-name">Name:</label>
+                <input id="add-name" type="text" required>
+            </div>
+            <div class="form-group">
+                <label for="add-age">Age:</label>
+                <input id="add-age" type="number" min="1" max="120" required>
+            </div>
+            <div class="form-group">
+                <label for="add-payrate">Pay Rate:</label>
+                <input id="add-payrate" type="number" min="1" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="add-submit-btn" value="Add">
+            </div>
+        </form>
+    </div>
+    <div id="remove-employee-form-popup">
+        <form id="remove-employee-form">
+
+        </form>
+    </div>
+    <div id="edit-employee-form-popup">
+        <form id="edit-employee-form">
+
+        </form>
+    </div>
     <main>
         <div class="container">
             <div id="employee-list">
@@ -73,9 +73,9 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Salary</th>
-                        <th>Hours</th>
-                        <th>Pay Rate</th>
-                        <th>Full/Part Time</th>
+                        <th>Hrs</th>
+                        <th>Pay</th>
+                        <th>FT/PT</th>
                     </tr>
                     <tr>
                         <td>1</td>

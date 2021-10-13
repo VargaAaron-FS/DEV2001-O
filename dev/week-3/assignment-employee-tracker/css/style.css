@@ -92,6 +92,15 @@ form label {
 
 #add-employee-form-popup {
     display: none;
+    position: fixed;
+    background: green;
+    color: white;
+    padding: 2rem;
+    border-radius: .25rem;
+    width: 70vw;
+    height: 70vh;
+    top: 15vh;
+    left: 15vw;
 }
 
 form#add-employee-form {

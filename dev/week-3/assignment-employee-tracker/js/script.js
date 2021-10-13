@@ -117,9 +117,12 @@ class FullTime extends Employee{
 class Main{
     constructor() {
         console.log("Main created!");
-    }
-    addEmployee(){
 
+        // Button click events
+        document.querySelector("#add-employee-btn").addEventListener("click", (e)=>this.addEmployee(e));
+    }
+    addEmployee(e){
+        document.querySelector("#add-employee-form-popup").style.display = "flex";
     }
     removeEmployee(){
 
