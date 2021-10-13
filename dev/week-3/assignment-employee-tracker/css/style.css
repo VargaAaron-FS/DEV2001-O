@@ -87,14 +87,14 @@ nav button {
     border: 2px solid red;
 }
 
-.black-btn {
+.blue-btn {
     color: white;
-    background: black;
+    background: blue;
 }
 
-.black-btn:hover {
-    color: black;
-    border: 2px solid black;
+.blue-btn:hover {
+    color: blue;
+    border: 2px solid blue;
     background: transparent;
 }
 
@@ -174,14 +174,24 @@ form input {
     display: none;
 }
 
+#edit-employee-form-popup {
+    display: none;
+}
+
+#edit-employee-form-popup-label {
+    background: blue;
+}
+
 .cancel-btn {
+    color: white;
+    background: black;
     margin: .25rem 0 0 0;
 }
 
 .cancel-btn:hover {
+    color: black;
     border: 2px solid black;
     background: transparent;
-    color: black;
 }
 
 #employee-list {

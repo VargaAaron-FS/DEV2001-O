@@ -36,8 +36,8 @@
                     <input id="add-payrate" type="number" min="1" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" id="add-submit-btn" class="green-btn">Submit</button>
-                    <button type="button" id="cancel-add-btn" class="black-btn cancel-btn">Cancel</button>
+                    <button type="submit" id="add-submit-btn" class="green-btn"><i class="fas fa-plus"></i> Add</button>
+                    <button type="button" id="cancel-add-btn" class="cancel-btn">Cancel</button>
                 </div>
             </form>
         </div>
@@ -63,16 +63,38 @@
                     <input id="add-payrate" type="number" min="1" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" id="remove-submit-btn" class="red-btn">Submit</button>
-                    <button type="button" id="cancel-remove-btn" class="black-btn cancel-btn">Cancel</button>
+                    <button type="submit" id="remove-submit-btn" class="red-btn"><i class="fas fa-minus"></i> Remove</button>
+                    <button type="button" id="cancel-remove-btn" class="cancel-btn">Cancel</button>
                 </div>
             </form>
         </div>
     </div>
-    <div id="edit-employee-form-popup">
-        <form id="edit-employee-form">
-
-        </form>
+    <div id="edit-employee-form-popup" class="popup">
+        <div id="edit-employee-form-popup-label" class="popup-label">
+            <div class="container">
+                <h3>Edit Employee</h3>
+            </div>
+        </div>
+        <div class="container">
+            <form id="edit-employee-form">
+                <div class="form-group">
+                    <label for="add-name">Name:</label>
+                    <input id="add-name" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-age">Age:</label>
+                    <input id="add-age" type="number" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-payrate">Pay:</label>
+                    <input id="add-payrate" type="number" min="1" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="edit-submit-btn" class="blue-btn"><i class="fas fa-save"></i> Save</button>
+                    <button type="button" id="cancel-edit-btn" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
     <header>
@@ -90,7 +112,7 @@
                 <div class="flex-container">
                     <button id="add-employee-btn" class="green-btn"><i class="fas fa-plus"></i><span class="button-titles"> Add</span></button>
                     <button id="remove-employee-btn" class="red-btn"><i class="fas fa-minus"></i><span class="button-titles"> Remove</span></button>
-                    <button id="edit-employee-btn" class="black-btn"><i class="fas fa-edit"></i><span class="button-titles"> Edit</span></button>
+                    <button id="edit-employee-btn" class="blue-btn"><i class="fas fa-edit"></i><span class="button-titles"> Edit</span></button>
                 </div>
             </nav>
         </div>

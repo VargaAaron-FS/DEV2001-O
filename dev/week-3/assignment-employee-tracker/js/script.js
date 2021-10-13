@@ -120,25 +120,30 @@ class Main{
 
         // Button click events
         document.querySelector("#add-employee-btn").addEventListener("click", (e)=>this.addEmployee(e));
-
         document.querySelector("#remove-employee-btn").addEventListener("click", (e)=>this.removeEmployee(e));
+        document.querySelector("#edit-employee-btn").addEventListener("click", (e)=>this.editEmployee(e));
 
         // Cancel button
         document.querySelector("#cancel-add-btn").addEventListener("click", (e)=>this.cancel(e));
         document.querySelector("#cancel-remove-btn").addEventListener("click", (e)=>this.cancel(e));
+        document.querySelector("#cancel-edit-btn").addEventListener("click", (e)=>this.cancel(e));
     }
     addEmployee(e){
         document.querySelector("#add-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
+
+        document.querySelector("#edit-employee-form-popup").style.display = "none";
     }
     removeEmployee(e){
         document.querySelector("#remove-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
         document.querySelector("#add-employee-form-popup").style.display = "none";
+        document.querySelector("#edit-employee-form-popup").style.display = "none";
     }
-    editEmployee(){
-
+    editEmployee(e){
+        document.querySelector("#edit-employee-form-popup").style.display = "flex";
+        document.querySelector(".popup-background").style.display = "flex";
     }
     displayEmployees(){
 
