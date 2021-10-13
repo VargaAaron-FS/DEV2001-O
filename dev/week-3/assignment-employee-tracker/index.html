@@ -35,23 +35,31 @@
         </div>
     </header>
     <div id="add-employee-form-popup">
-        <form id="add-employee-form">
-            <div class="form-group">
-                <label for="add-name">Name:</label>
-                <input id="add-name" type="text" required>
+        <div class="add-employee-form-popup-label">
+            <div class="container">
+                <h3>Add Employee</h3>
             </div>
-            <div class="form-group">
-                <label for="add-age">Age:</label>
-                <input id="add-age" type="number" min="1" max="120" required>
-            </div>
-            <div class="form-group">
-                <label for="add-payrate">Pay Rate:</label>
-                <input id="add-payrate" type="number" min="1" required>
-            </div>
-            <div class="form-group">
-                <input type="submit" id="add-submit-btn" value="Add">
-            </div>
-        </form>
+        </div>
+        <div class="container">
+            <form id="add-employee-form">
+                <div class="form-group">
+                    <label for="add-name">Name:</label>
+                    <input id="add-name" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-age">Age:</label>
+                    <input id="add-age" type="number" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-payrate">Pay Rate:</label>
+                    <input id="add-payrate" type="number" min="1" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" id="add-submit-btn" value="Add">
+                    <input type="button" id="cancel-add-btn" value="Cancel">
+                </div>
+            </form>
+        </div>
     </div>
     <div id="remove-employee-form-popup">
         <form id="remove-employee-form">

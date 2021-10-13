@@ -122,7 +122,7 @@ class Main{
         document.querySelector("#add-employee-btn").addEventListener("click", (e)=>this.addEmployee(e));
     }
     addEmployee(e){
-        document.querySelector("#add-employee-form-popup").style.display = "flex";
+        document.querySelector("#add-employee-form-popup").style.display = "block";
     }
     removeEmployee(){
 
