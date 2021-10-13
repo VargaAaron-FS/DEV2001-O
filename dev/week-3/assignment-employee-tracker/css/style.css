@@ -65,34 +65,34 @@ nav button {
     width: 100%;
 }
 
-button#add-employee-btn {
+.green-btn {
     color: white;
     background: green;
 }
 
-button#add-employee-btn:hover {
+.green-btn:hover {
     color: green;
     border: 2px solid green;
     background: transparent;
 }
 
-button#remove-employee-btn {
+.red-btn {
     color: white;
     background: red;
 }
 
-button#remove-employee-btn:hover {
+.red-btn:hover {
     color: red;
     background: transparent;
     border: 2px solid red;
 }
 
-button#edit-employee-btn {
+.black-btn {
     color: white;
     background: black;
 }
 
-button#edit-employee-btn:hover {
+.black-btn:hover {
     color: black;
     border: 2px solid black;
     background: transparent;
@@ -103,7 +103,7 @@ button#edit-employee-btn:hover {
 }
 
 form {
-
+    margin: 1rem 0;
 }
 
 form label {
@@ -147,32 +147,27 @@ form input {
     border: 2px solid green;
 }
 
-.add-employee-form-popup-label {
-    background: green;
+#remove-employee-form-popup {
+    display: none;
+    border: 2px solid red;
+}
+
+.popup-label {
     width: 100%;
     padding: 1rem 0;
 }
 
-.add-employee-form-popup-label h3 {
-    width: 100%;
+.popup-label h3 {
     margin: 1rem 0;
     color: white;
 }
 
-#add-employee-form {
-    margin: 1rem 0;
-}
-
-#add-submit-btn {
-    margin: 0 0 .25rem 0;
+#add-employee-form-popup-label {
     background: green;
-    color: white;
 }
 
-#add-submit-btn:hover {
-    border: 2px solid green;
-    background: transparent;
-    color: green;
+#remove-employee-form-popup-label {
+    background: red;
 }
 
 #remove-employee-form-popup {
@@ -180,8 +175,7 @@ form input {
 }
 
 .cancel-btn {
-    background: black;
-    color: white;
+    margin: .25rem 0 0 0;
 }
 
 .cancel-btn:hover {

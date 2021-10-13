@@ -16,7 +16,7 @@
 <body>
 <div class="popup-background">
     <div id="add-employee-form-popup" class="popup">
-        <div class="add-employee-form-popup-label">
+        <div id="add-employee-form-popup-label" class="popup-label">
             <div class="container">
                 <h3>Add Employee</h3>
             </div>
@@ -36,21 +36,38 @@
                     <input id="add-payrate" type="number" min="1" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" id="add-submit-btn">Submit</button>
-                    <button type="button" id="cancel-add-btn" class="cancel-btn">Cancel</button>
+                    <button type="submit" id="add-submit-btn" class="green-btn">Submit</button>
+                    <button type="button" id="cancel-add-btn" class="black-btn cancel-btn">Cancel</button>
                 </div>
             </form>
         </div>
     </div>
-    <div id="remove-employee-form-popup">
-        <div class="add-employee-form-popup-label">
+    <div id="remove-employee-form-popup" class="popup">
+        <div id="remove-employee-form-popup-label" class="popup-label">
             <div class="container">
                 <h3>Remove Employee</h3>
             </div>
         </div>
-        <form id="remove-employee-form">
-
-        </form>
+        <div class="container">
+            <form id="remove-employee-form">
+                <div class="form-group">
+                    <label for="add-name">Name:</label>
+                    <input id="add-name" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-age">Age:</label>
+                    <input id="add-age" type="number" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-payrate">Pay:</label>
+                    <input id="add-payrate" type="number" min="1" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="remove-submit-btn" class="red-btn">Submit</button>
+                    <button type="button" id="cancel-remove-btn" class="black-btn cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
     <div id="edit-employee-form-popup">
         <form id="edit-employee-form">
@@ -71,9 +88,9 @@
             <nav>
                 <h3>Employee Tracker Tools</h3>
                 <div class="flex-container">
-                    <button id="add-employee-btn"><i class="fas fa-plus"></i><span class="button-titles"> Add</span></button>
-                    <button id="remove-employee-btn"><i class="fas fa-minus"></i><span class="button-titles"> Remove</span></button>
-                    <button id="edit-employee-btn"><i class="fas fa-edit"></i><span class="button-titles"> Edit</span></button>
+                    <button id="add-employee-btn" class="green-btn"><i class="fas fa-plus"></i><span class="button-titles"> Add</span></button>
+                    <button id="remove-employee-btn" class="red-btn"><i class="fas fa-minus"></i><span class="button-titles"> Remove</span></button>
+                    <button id="edit-employee-btn" class="black-btn"><i class="fas fa-edit"></i><span class="button-titles"> Edit</span></button>
                 </div>
             </nav>
         </div>

@@ -121,14 +121,21 @@ class Main{
         // Button click events
         document.querySelector("#add-employee-btn").addEventListener("click", (e)=>this.addEmployee(e));
 
+        document.querySelector("#remove-employee-btn").addEventListener("click", (e)=>this.removeEmployee(e));
+
+        // Cancel button
         document.querySelector("#cancel-add-btn").addEventListener("click", (e)=>this.cancel(e));
+        document.querySelector("#cancel-remove-btn").addEventListener("click", (e)=>this.cancel(e));
     }
     addEmployee(e){
         document.querySelector("#add-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
     }
-    removeEmployee(){
+    removeEmployee(e){
+        document.querySelector("#remove-employee-form-popup").style.display = "flex";
+        document.querySelector(".popup-background").style.display = "flex";
 
+        document.querySelector("#add-employee-form-popup").style.display = "none";
     }
     editEmployee(){
 
@@ -138,6 +145,7 @@ class Main{
     }
     cancel(e){
         document.querySelector("#add-employee-form-popup").style.display = "none";
+        document.querySelector("#remove-employee-form-popup").style.display = "none";
         document.querySelector(".popup-background").style.display = "none";
         // Reset form if partially filled out before cancelling so form is blank next time form is opened
         document.querySelector("#add-employee-form").reset();
