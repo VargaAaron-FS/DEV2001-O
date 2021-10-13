@@ -15,31 +15,96 @@
 </head>
 <body>
     <header>
+        <div class="project-info">
+                <div class="container">
+                    <h1>Employee Tracker</h1>
+                    <h2>Introduction to Development II (DEV2001-O)</h2>
+                    <p>Created by <a href="https://www.iamaaronvarga.com" target="_blank">Aaron Varga</a> with HTML, CSS, and
+                        JavaScript.</p>
+                </div>
+        </div>
         <div class="container">
-            <h1>Employee Tracker</h1>
-            <h2>Introduction to Development II (DEV2001-O)</h2>
-            <p>Created by <a href="https://www.iamaaronvarga.com" target="_blank">Aaron Varga</a> with HTML, CSS, and
-                JavaScript.</p>
             <nav>
-                <h3>Employee Tracker Options:</h3>
-                <a href="#" id="add-employee-btn"><i class="fas fa-plus"></i> Add</a>
-                <a href="#" id="remove-employee-btn"><i class="fas fa-minus"></i> Remove</a>
-                <a href="#" id="edit-employee-btn"><i class="fas fa-edit"></i> Edit</a>
+                <h3>Employee Tracker Tools</h3>
+                <div class="flex-container">
+                    <a href="#" id="add-employee-btn"><i class="fas fa-plus"></i> Add</a>
+                    <a href="#" id="remove-employee-btn"><i class="fas fa-minus"></i> Remove</a>
+                    <a href="#" id="edit-employee-btn"><i class="fas fa-edit"></i> Edit</a>
+                </div>
             </nav>
-            <form id="add-employee-form">
+            <div id="add-employee-form-popup">
+                <form id="add-employee-form">
+                    <div class="form-group">
+                        <label for="add-name">Name:</label>
+                        <input id="add-name" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-age">Age:</label>
+                        <input id="add-age" type="number" min="1" max="120" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-payrate">Pay Rate:</label>
+                        <input id="add-payrate" type="number" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" id="add-submit-btn" value="Add">
+                    </div>
+                </form>
+            </div>
+            <div id="remove-employee-form-popup">
+                <form id="remove-employee-form">
 
-            </form>
-            <form id="remove-employee-form">
+                </form>
+            </div>
+            <div id="edit-employee-form-popup">
+                <form id="edit-employee-form">
 
-            </form>
-            <form id="edit-employee-form">
-
-            </form>
+                </form>
+            </div>
         </div>
     </header>
     <main>
         <div class="container">
-            <p>Main Content Here</p>
+            <div id="employee-list">
+                <h3>Employee List</h3>
+                <table id="employee-list-table">
+                    <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Salary</th>
+                        <th>Hours</th>
+                        <th>Pay Rate</th>
+                        <th>Full/Part Time</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Name</td>
+                        <td>$</td>
+                        <td>4</td>
+                        <td>$</td>
+                        <td>Full Time</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Name</td>
+                        <td>$</td>
+                        <td>4</td>
+                        <td>$</td>
+                        <td>Part Time</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Name</td>
+                        <td>$</td>
+                        <td>4</td>
+                        <td>$</td>
+                        <td>Full Time</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- DivTable.com -->
+            </div>
         </div>
     </main>
     <footer>

@@ -7,6 +7,19 @@ html {
     padding: 0 1.5rem;
 }
 
+.flex-container {
+    display: flex;
+}
+
+.project-info {
+    background: #eeeeee;
+    padding: 2rem 0;
+}
+
+h1 {
+    margin: 0;
+}
+
 a {
     color: blue;
     text-decoration: none;
@@ -16,10 +29,17 @@ nav {
     margin: 2rem 0;
 }
 
+nav .flex-container {
+    gap: .25rem;
+    flex-direction: column;
+}
+
 nav a {
     border: 2px solid transparent;
     padding: .5rem 1rem;
     border-radius: .25rem;
+    width: 100%;
+    text-align: center;
 }
 
 a#add-employee-btn {
@@ -55,12 +75,66 @@ a#edit-employee-btn:hover {
     background: transparent;
 }
 
+form {
+
+}
+
+form label {
+
+}
+
+.form-group {
+
+}
+
+#add-employee-form-popup {
+    display: none;
+}
+
+form#add-employee-form {
+
+}
+
+#add-submit-btn {
+
+}
+
+#employee-list {
+    padding: 0 0 1rem 0;
+}
+
+#employee-list-table {
+    width: 100%;
+    text-align: center;
+}
+
+#employee-list-table th {
+    background: #eeeeee;
+    padding: .5rem;
+}
+
+#employee-list-table td {
+    padding: .5rem;
+    border-bottom: 2px solid #eeeeee;
+}
+
+footer {
+    padding: 2rem 0;
+    margin: 2rem 0 0 0;
+    background: #eeeeee;
+}
+
 /* Breakpoints (Mobile-First) */
 
 /* Small */
 @media (min-width: 640px) {
     .container {
         max-width: 640px;
+    }
+
+    nav .flex-container {
+        gap: .25rem;
+        flex-direction: row;
     }
 }
 
