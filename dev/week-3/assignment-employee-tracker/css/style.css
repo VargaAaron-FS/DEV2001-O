@@ -50,6 +50,7 @@ button, input[type=button], input[type=submit] {
     border: 2px solid transparent;
     text-align: center;
     cursor: pointer;
+    font-weight: 700;
 }
 
 nav {
@@ -113,6 +114,8 @@ form label {
 form input {
     padding: .5rem;
     font-family: 'Noto Sans Mono', monospace;
+    border: 2px solid #eeeeee;
+    border-radius: .25rem;
 }
 
 .form-group {
@@ -129,17 +132,19 @@ form input {
     position: fixed;
 }
 
-#add-employee-form-popup {
-    display: none;
+.popup {
     background: #fff;
-    border: 2px solid green;
-    border-radius: .25rem;
-    max-width: 640px;
-    height: auto;
     box-shadow: rgba(0,0,0,.25) 0 0 25px 0;
+    width: auto;
+    height: auto;
     z-index: 2;
     position: relative;
     flex-direction: column;
+}
+
+#add-employee-form-popup {
+    display: none;
+    border: 2px solid green;
 }
 
 .add-employee-form-popup-label {
@@ -168,6 +173,10 @@ form input {
     border: 2px solid green;
     background: transparent;
     color: green;
+}
+
+#remove-employee-form-popup {
+    display: none;
 }
 
 .cancel-btn {
