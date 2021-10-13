@@ -120,9 +120,12 @@ class Main{
 
         // Button click events
         document.querySelector("#add-employee-btn").addEventListener("click", (e)=>this.addEmployee(e));
+
+        document.querySelector("#cancel-add-btn").addEventListener("click", (e)=>this.cancel(e));
     }
     addEmployee(e){
-        document.querySelector("#add-employee-form-popup").style.display = "block";
+        document.querySelector("#add-employee-form-popup").style.display = "flex";
+        document.querySelector(".popup-background").style.display = "flex";
     }
     removeEmployee(){
 
@@ -132,6 +135,12 @@ class Main{
     }
     displayEmployees(){
 
+    }
+    cancel(e){
+        document.querySelector("#add-employee-form-popup").style.display = "none";
+        document.querySelector(".popup-background").style.display = "none";
+        // Reset form if partially filled out before cancelling so form is blank next time form is opened
+        document.querySelector("#add-employee-form").reset();
     }
 }
 

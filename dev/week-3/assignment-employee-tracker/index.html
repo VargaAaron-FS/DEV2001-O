@@ -14,6 +14,45 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="popup-background">
+    <div id="add-employee-form-popup">
+        <div class="add-employee-form-popup-label">
+            <div class="container">
+                <h3>Add Employee</h3>
+            </div>
+        </div>
+        <div class="container">
+            <form id="add-employee-form">
+                <div class="form-group">
+                    <label for="add-name">Name:</label>
+                    <input id="add-name" type="text" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-age">Age:</label>
+                    <input id="add-age" type="number" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-payrate">Pay:</label>
+                    <input id="add-payrate" type="number" min="1" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="add-submit-btn">Submit</button>
+                    <button type="button" id="cancel-add-btn" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="remove-employee-form-popup">
+        <form id="remove-employee-form">
+
+        </form>
+    </div>
+    <div id="edit-employee-form-popup">
+        <form id="edit-employee-form">
+
+        </form>
+    </div>
+</div>
     <header>
         <div class="project-info">
             <div class="container">
@@ -34,43 +73,6 @@
             </nav>
         </div>
     </header>
-    <div id="add-employee-form-popup">
-        <div class="add-employee-form-popup-label">
-            <div class="container">
-                <h3>Add Employee</h3>
-            </div>
-        </div>
-        <div class="container">
-            <form id="add-employee-form">
-                <div class="form-group">
-                    <label for="add-name">Name:</label>
-                    <input id="add-name" type="text" required>
-                </div>
-                <div class="form-group">
-                    <label for="add-age">Age:</label>
-                    <input id="add-age" type="number" min="1" max="120" required>
-                </div>
-                <div class="form-group">
-                    <label for="add-payrate">Pay Rate:</label>
-                    <input id="add-payrate" type="number" min="1" required>
-                </div>
-                <div class="form-group">
-                    <input type="submit" id="add-submit-btn" value="Add">
-                    <input type="button" id="cancel-add-btn" value="Cancel">
-                </div>
-            </form>
-        </div>
-    </div>
-    <div id="remove-employee-form-popup">
-        <form id="remove-employee-form">
-
-        </form>
-    </div>
-    <div id="edit-employee-form-popup">
-        <form id="edit-employee-form">
-
-        </form>
-    </div>
     <main>
         <div class="container">
             <div id="employee-list">
@@ -91,7 +93,7 @@
                         <td>$</td>
                         <td>4</td>
                         <td>$</td>
-                        <td>Full Time</td>
+                        <td>FT</td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -99,7 +101,7 @@
                         <td>$</td>
                         <td>4</td>
                         <td>$</td>
-                        <td>Part Time</td>
+                        <td>PT</td>
                     </tr>
                     <tr>
                         <td>3</td>
@@ -107,7 +109,7 @@
                         <td>$</td>
                         <td>4</td>
                         <td>$</td>
-                        <td>Full Time</td>
+                        <td>FT</td>
                     </tr>
                     </tbody>
                 </table>
