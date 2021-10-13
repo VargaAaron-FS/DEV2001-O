@@ -31,7 +31,6 @@ nav {
 
 nav .flex-container {
     gap: .25rem;
-    flex-direction: column;
 }
 
 nav a {
@@ -73,6 +72,10 @@ a#edit-employee-btn:hover {
     color: black;
     border: 2px solid black;
     background: transparent;
+}
+
+.button-titles {
+    display: none;
 }
 
 form {
@@ -135,6 +138,10 @@ footer {
     nav .flex-container {
         gap: .25rem;
         flex-direction: row;
+    }
+
+    .button-titles {
+        display: inline;
     }
 }
 
