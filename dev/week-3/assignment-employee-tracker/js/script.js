@@ -154,6 +154,8 @@ class Main{
         document.querySelector(".popup-background").style.display = "none";
         // Reset form if partially filled out before cancelling so form is blank next time form is opened
         document.querySelector("#add-employee-form").reset();
+        document.querySelector("#remove-employee-form").reset();
+        document.querySelector("#edit-employee-form").reset();
     }
 }
 

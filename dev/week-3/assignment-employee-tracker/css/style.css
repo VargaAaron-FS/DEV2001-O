@@ -34,7 +34,7 @@ h1 {
 }
 
 h2 {
-    line-height: 3rem;
+    line-height: 2rem;
 }
 
 h3 {
@@ -120,7 +120,7 @@ form label {
     margin: 0 0 .25rem 0;
 }
 
-form input {
+form input, select {
     padding: .5rem;
     font-family: 'Noto Sans Mono', monospace;
     border: 2px solid #eeeeee;
@@ -161,6 +161,11 @@ form input {
     border: 2px solid red;
 }
 
+#edit-employee-form-popup {
+    display: none;
+    border: 2px solid blue;
+}
+
 .popup-label {
     width: 100%;
     padding: 1rem 0;
@@ -177,14 +182,6 @@ form input {
 
 #remove-employee-form-popup-label {
     background: red;
-}
-
-#remove-employee-form-popup {
-    display: none;
-}
-
-#edit-employee-form-popup {
-    display: none;
 }
 
 #edit-employee-form-popup-label {
