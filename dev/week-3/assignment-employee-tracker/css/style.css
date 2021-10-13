@@ -11,6 +11,10 @@ html {
     display: flex;
 }
 
+header {
+    text-align: center;
+}
+
 .project-info {
     background: #eeeeee;
     padding: 2rem 0;
@@ -18,6 +22,11 @@ html {
 
 h1,h2,h3,h4,h5,h6 {
     margin: 0;
+    text-align: center;
+}
+
+.fas.fa-users {
+    display: block;
 }
 
 h1 {
@@ -34,7 +43,7 @@ h3 {
 }
 
 p {
-    line-height: 1rem;
+    line-height: 1.5rem;
 }
 
 a {
@@ -217,6 +226,11 @@ footer {
     padding: 2rem 0;
     margin: 2rem 0 0 0;
     background: #eeeeee;
+    text-align: center;
+}
+
+.nowrap-text {
+    white-space: nowrap;
 }
 
 /* Breakpoints (Mobile-First) */
@@ -234,6 +248,22 @@ footer {
 
     .button-titles {
         display: inline;
+    }
+
+    .fas.fa-users {
+        display: inline;
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        text-align: left;
+    }
+
+    header {
+        text-align: left;
+    }
+
+    footer {
+        text-align: left;
     }
 }
 
