@@ -119,43 +119,61 @@ class Main{
         console.log("Main created!");
 
         // Button click events
-        document.querySelector("#add-employee-btn").addEventListener("click", (e)=>this.addEmployee(e));
-        document.querySelector("#remove-employee-btn").addEventListener("click", (e)=>this.removeEmployee(e));
-        document.querySelector("#edit-employee-btn").addEventListener("click", (e)=>this.editEmployee(e));
+        // Employee tracker tools buttons
+        document.querySelector("#add-employee-btn").addEventListener("click", (e)=>this.addEmployeeForm(e));
+        document.querySelector("#remove-employee-btn").addEventListener("click", (e)=>this.removeEmployeeForm(e));
+        document.querySelector("#edit-employee-btn").addEventListener("click", (e)=>this.editEmployeeForm(e));
 
         // Cancel button
         document.querySelector("#cancel-add-btn").addEventListener("click", (e)=>this.cancel(e));
         document.querySelector("#cancel-remove-btn").addEventListener("click", (e)=>this.cancel(e));
         document.querySelector("#cancel-edit-btn").addEventListener("click", (e)=>this.cancel(e));
+
+        // Form submission buttons
+        document.querySelector("#add-submit-btn").addEventListener("click", (e)=>this.addEmployee(e));
+        document.querySelector("#remove-submit-btn").addEventListener("click", (e)=>this.removeEmployee(e));
+        document.querySelector("#edit-submit-btn").addEventListener("click", (e)=>this.editEmployee(e));
     }
-    addEmployee(e){
+    addEmployeeForm(e){
         document.querySelector("#add-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
         document.querySelector("#edit-employee-form-popup").style.display = "none";
     }
-    removeEmployee(e){
+    removeEmployeeForm(e){
         document.querySelector("#remove-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
         document.querySelector("#add-employee-form-popup").style.display = "none";
         document.querySelector("#edit-employee-form-popup").style.display = "none";
     }
-    editEmployee(e){
+    editEmployeeForm(e){
         document.querySelector("#edit-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
     }
     displayEmployees(){
-
+        // May not need if it is okay with Instructor to auto-show list and have it update in real-time/automatically
     }
     cancel(e){
+        // Close all/any forms on cancel
         document.querySelector("#add-employee-form-popup").style.display = "none";
         document.querySelector("#remove-employee-form-popup").style.display = "none";
+        document.querySelector("#edit-employee-form-popup").style.display = "none";
         document.querySelector(".popup-background").style.display = "none";
+
         // Reset form if partially filled out before cancelling so form is blank next time form is opened
         document.querySelector("#add-employee-form").reset();
         document.querySelector("#remove-employee-form").reset();
         document.querySelector("#edit-employee-form").reset();
+    }
+    addEmployee(e){
+        console.log("Employee added!");
+    }
+    removeEmployee(e){
+        console.log("Employee removed!");
+    }
+    editEmployee(e){
+        console.log("Employee edited!");
     }
 }
 
