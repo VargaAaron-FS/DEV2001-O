@@ -118,7 +118,7 @@ class Main{
     constructor() {
         console.log("Main created!");
 
-        this.employee = [];
+        this.employees = [];
 
         // Button click events
         // Employee tracker tools buttons
@@ -189,10 +189,12 @@ class Main{
                 let annualSalary = (hours*payRate*52)-1000;
 
                 let employee = new FullTime(name,age,annualSalary,payRate,hours);
-                console.log(employee);
-            }
 
-            console.log(`Employee created: ${name}, ${age}, ${payRate}, ${hours}`);
+                // Add or "push" new user to array to be stored
+                this.employees.push(employee);
+
+                console.log(this.employees);
+            }
 
             // Store new user in variable
             // let employee = new Employee(name,age,annualSalary,payRate,hours,employeeType);
