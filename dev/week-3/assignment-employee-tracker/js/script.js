@@ -183,7 +183,16 @@ class Main{
                 let annualSalary = (hours * payRate) * 52;
 
                 let employee = new PartTime(name,age,annualSalary,payRate,hours);
+
+                // Add or "push" new user to array to be stored
+                this.employees.push(employee);
+
                 console.log(employee);
+
+                // Insert success message
+                document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully created!";
+                // Show success  message
+                document.querySelector("#success-msg").style.display = "block";
             }
             else{
                 let annualSalary = (hours*payRate*52)-1000;
@@ -193,17 +202,17 @@ class Main{
                 // Add or "push" new user to array to be stored
                 this.employees.push(employee);
 
+                // Insert success message
+                document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully created!";
+                // Show success  message
                 document.querySelector("#success-msg").style.display = "block";
 
                 console.log(this.employees);
             }
 
-            // Success message
-            document.querySelector("#success-msg").innerHTML += "<i class='fas fa-check'></i> Employee successfully created!";
-
             // Notifications are removed after 5 seconds
             setTimeout(function(){
-                document.querySelector("#success-msg").remove();
+                document.querySelector("#success-msg").style.display = "none";
             }, 5000);
 
             // Reset form upon submission
