@@ -113,6 +113,7 @@ nav button {
 
 #success-msg {
     display: none;
+    color: green;
 }
 
 #error-msg {

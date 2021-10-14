@@ -193,11 +193,18 @@ class Main{
                 // Add or "push" new user to array to be stored
                 this.employees.push(employee);
 
+                document.querySelector("#success-msg").style.display = "block";
+
                 console.log(this.employees);
             }
 
-            // Store new user in variable
-            // let employee = new Employee(name,age,annualSalary,payRate,hours,employeeType);
+            // Success message
+            document.querySelector("#success-msg").innerHTML += "<i class='fas fa-check'></i> Employee successfully created!";
+
+            // Notifications are removed after 5 seconds
+            setTimeout(function(){
+                document.querySelector("#success-msg").remove();
+            }, 5000);
 
             // Reset form upon submission
             document.querySelector("#add-employee-form").reset();
