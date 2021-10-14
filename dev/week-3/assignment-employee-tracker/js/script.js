@@ -94,7 +94,7 @@ class PartTime extends Employee{
         super(name,age,annualSalary);
         this.payRate = payRate;
         this.hours = hours;
-        this.employeeType = "Part Time";
+        this.employeeType = "PT";
         console.log("PartTime Employee created!");
     }
     calculatePay(){
@@ -103,10 +103,11 @@ class PartTime extends Employee{
 }
 
 class FullTime extends Employee{
-    constructor(name,age,annualSalary,payRate,employeeType) {
+    constructor(name,age,annualSalary,payRate,hours,employeeType) {
         super(name,age,annualSalary);
         this.payRate = payRate;
-        this.employeeType = "Full Time";
+        this.hours = 40;
+        this.employeeType = "FT";
         console.log("FullTime Employee created!");
     }
     calculatePay(){
@@ -119,6 +120,18 @@ class Main{
         console.log("Main created!");
 
         this.employees = [];
+
+        // Initial employees
+        const scott = new FullTime("Scott",40,19800,10, 40,"FT");
+        const dave = new FullTime("Dave",50,9400,5, 40,"FT");
+        const lisa = new PartTime("Lisa",30,4992,8, 12,"PT");
+
+        // Push initial employees to array
+        this.employees.push(scott);
+        this.employees.push(dave);
+        this.employees.push(lisa);
+
+        console.log(this.employees);
 
         // Button click events
         // Employee tracker tools buttons
