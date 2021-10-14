@@ -206,13 +206,13 @@ class Main{
             document.querySelector("#add-employee-form-popup").style.display = "none";
             document.querySelector(".popup-background").style.display = "none";
         }
-        console.log("Employee added!");
+        console.log("Employee add button clicked!");
     }
     removeEmployee(e){
-        console.log("Employee removed!");
+        console.log("Employee remove button clicked!");
     }
     editEmployee(e){
-        console.log("Employee edited!");
+        console.log("Employee edit save button clicked!");
     }
 }
 
