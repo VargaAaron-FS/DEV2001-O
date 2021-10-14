@@ -94,7 +94,7 @@ class PartTime extends Employee{
         super(name,age,annualSalary);
         this.payRate = payRate;
         this.hours = hours;
-        this.employeeType = employeeType;
+        this.employeeType = "Part Time";
         console.log("PartTime Employee created!");
     }
     calculatePay(){
@@ -106,17 +106,19 @@ class FullTime extends Employee{
     constructor(name,age,annualSalary,payRate,employeeType) {
         super(name,age,annualSalary);
         this.payRate = payRate;
-        this.employeeType = employeeType;
+        this.employeeType = "Full Time";
         console.log("FullTime Employee created!");
     }
     calculatePay(){
-        console.log((40*this.payRate*52)-1000);
+        console.log((this.hours*this.payRate*52)-1000);
     }
 }
 
 class Main{
     constructor() {
         console.log("Main created!");
+
+        this.employee = [];
 
         // Button click events
         // Employee tracker tools buttons
@@ -135,19 +137,17 @@ class Main{
         document.querySelector("#edit-submit-btn").addEventListener("click", (e)=>this.editEmployee(e));
     }
     addEmployeeForm(e){
+        // Show add employee form
         document.querySelector("#add-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
-
-        document.querySelector("#edit-employee-form-popup").style.display = "none";
     }
     removeEmployeeForm(e){
+        // Show remove employee form
         document.querySelector("#remove-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
-
-        document.querySelector("#add-employee-form-popup").style.display = "none";
-        document.querySelector("#edit-employee-form-popup").style.display = "none";
     }
     editEmployeeForm(e){
+        // Show edit employee form
         document.querySelector("#edit-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
     }
@@ -167,6 +167,45 @@ class Main{
         document.querySelector("#edit-employee-form").reset();
     }
     addEmployee(e){
+        if(document.querySelector("#add-name").checkValidity() &&
+            document.querySelector("#add-age").checkValidity() &&
+            document.querySelector("#add-payrate").checkValidity() &&
+            document.querySelector("#add-hours").checkValidity()){
+
+            console.log("Valid!");
+
+            let name = document.querySelector("#add-name").value;
+            let age = document.querySelector("#add-age").value;
+            let payRate = document.querySelector("#add-payrate").value;
+            let hours = document.querySelector("#add-hours").value;
+
+            if(hours < 40){
+                let annualSalary = (hours * payRate) * 52;
+
+                let employee = new PartTime(name,age,annualSalary,payRate,hours);
+                console.log(employee);
+            }
+            else{
+                let annualSalary = (hours*payRate*52)-1000;
+
+                let employee = new FullTime(name,age,annualSalary,payRate,hours);
+                console.log(employee);
+            }
+
+            console.log(`Employee created: ${name}, ${age}, ${payRate}, ${hours}`);
+
+            // Store new user in variable
+            // let employee = new Employee(name,age,annualSalary,payRate,hours,employeeType);
+
+            // Reset form upon submission
+            document.querySelector("#add-employee-form").reset();
+
+            e.preventDefault();
+
+            // Auto-close form once new employee is added
+            document.querySelector("#add-employee-form-popup").style.display = "none";
+            document.querySelector(".popup-background").style.display = "none";
+        }
         console.log("Employee added!");
     }
     removeEmployee(e){
