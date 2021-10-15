@@ -131,6 +131,11 @@ class Main{
         this.employees.push(dave);
         this.employees.push(lisa);
 
+        // Inject initial employees into table
+        // Create table row
+        // Create document innerHTML with <td>'s and their inputs?
+        // Create inside of a for each loop
+
         console.log(this.employees);
 
         // Button click events
