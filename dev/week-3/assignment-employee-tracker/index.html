@@ -54,15 +54,21 @@
         </div>
         <div class="container">
             <form id="remove-employee-form">
+                <h4>Select Employee -</h4>
                 <div class="form-group">
-                    <label for="remove-employee">Select Employee:</label>
-                    <select id="remove-employee" name="remove-employee" required>
+                    <label for="remove-by-name">By Name:</label>
+                    <select id="remove-by-name" name="remove-by-name" required>
                         <option value="" selected disabled hidden>Select an Employee</option>
                         <option value="Employee #1">Employee #1</option>
                         <option value="Employee #2">Employee #2</option>
                         <option value="Employee #3">Employee #3</option>
                         <option value="Employee #4">Employee #4</option>
                     </select>
+                </div>
+                <p>- Or -</p>
+                <div class="form-group">
+                    <label for="remove-by-id">By ID:</label>
+                    <input id="remove-by-id" type="number" min="1">
                 </div>
                 <div class="form-group">
                     <button type="submit" id="remove-submit-btn" class="red-btn"><i class="fas fa-minus"></i> Remove</button>
@@ -79,15 +85,21 @@
         </div>
         <div class="container">
             <form id="edit-employee-form">
+                <h4>Select Employee -</h4>
                 <div class="form-group">
-                    <label for="edit-employee">Select Employee:</label>
-                    <select id="edit-employee" name="edit-employee" required>
+                    <label for="edit-by-name">By Name:</label>
+                    <select id="edit-by-name" name="edit-by-name">
                         <option value="" selected disabled hidden>Select an Employee</option>
                         <option value="Employee #1">Employee #1</option>
                         <option value="Employee #2">Employee #2</option>
                         <option value="Employee #3">Employee #3</option>
                         <option value="Employee #4">Employee #4</option>
                     </select>
+                </div>
+                <p>- Or -</p>
+                <div class="form-group">
+                    <label for="edit-by-id">By ID:</label>
+                    <input id="edit-by-id" type="number" min="1">
                 </div>
                 <div class="form-group">
                     <label for="edit-payrate">New Pay:</label>
@@ -140,12 +152,12 @@
                         <th>FT/PT</th>
                     </tr>
                     <tr>
-                        <td id="#employee-id">1</td>
-                        <td id="employee-name">Name</td>
-                        <td id="employee-salary">$</td>
-                        <td id="employee-hours">4</td>
-                        <td id="employee-payrate">$</td>
-                        <td id="employee-type">FT</td>
+                        <td class="employee-id"></td>
+                        <td class="employee-name"></td>
+                        <td class="employee-salary"></td>
+                        <td class="employee-hours"></td>
+                        <td class="employee-payrate"></td>
+                        <td class="employee-type"></td>
                     </tr>
                     <tr>
                         <td>2</td>

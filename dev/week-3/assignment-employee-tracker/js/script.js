@@ -131,6 +131,14 @@ class Main{
         this.employees.push(dave);
         this.employees.push(lisa);
 
+        // Scott's info inserted into HTML (REDO THIS SO IT CREATES THESE WITH JAVASCRIPT CREATEELEMENT WAY LIKE OBJECT CREATION ASSIGNMENT)
+        document.querySelector(".employee-id").innerHTML = `${this.employees.indexOf(scott)+1}`;
+        document.querySelector(".employee-name").innerHTML = `${scott.name}`;
+        document.querySelector(".employee-salary").innerHTML = `${scott.annualSalary}`;
+        document.querySelector(".employee-hours").innerHTML = `${scott.hours}`;
+        document.querySelector(".employee-payrate").innerHTML = `${scott.payRate}`;
+        document.querySelector(".employee-type").innerHTML = `${scott.employeeType}`;
+
         // Inject initial employees into table
         // Create table row
         // Create document innerHTML with <td>'s and their inputs?
