@@ -177,7 +177,6 @@ class Main{
             const dave = new FullTime("Dave",50,9400,5, 40,"FT");
             this.employees.push(dave);
 
-            // function addRow(tableID) {
             // Get a reference to the table
             let tableRef = document.getElementById(`employee-list-table`);
 
@@ -295,11 +294,21 @@ class Main{
         // Show add employee form
         document.querySelector("#add-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
+
+        // Set immediate focus on first input field for usability
+        (()=>{
+            document.querySelector("#add-name").focus();
+        })();
     }
     removeEmployeeForm(e){
         // Show remove employee form
         document.querySelector("#remove-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
+
+        // Set immediate focus on first input field for usability
+        (()=>{
+            document.querySelector("#remove-by-name").focus();
+        })();
 
         // Alphabetize dropdown list
         function sortList() {
@@ -340,6 +349,11 @@ class Main{
         // Show edit employee form
         document.querySelector("#edit-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
+
+        // Set immediate focus on first input field for usability
+        (()=>{
+            document.querySelector("#edit-by-name").focus();
+        })();
 
         // Alphabetize dropdown list
         function sortList() {
@@ -557,20 +571,28 @@ class Main{
                 // Find the index of selected name value from form
                 const findIndex = this.employees.map(e => e.name).indexOf(removeEmployeeName);
 
-                // console.log(findIndex);
-
-                // console.log(this.employees.splice(findIndex,1));
-
                 // Remove employee selected
                 this.employees.splice(findIndex,1);
 
-                // console.log(this.employees);
-
                 // Create variable to assign table element
-                let table = document.querySelector("#employee-list-table");
+                let tableRef = document.querySelector("#employee-list-table");
 
                 // Delete row related to name selection
-                table.deleteRow(findIndex+1);
+                tableRef.deleteRow(findIndex+1);
+
+                // Remove employee from Remove form dropdown NOT DONE
+                let removeNameList = document.getElementById("remove-by-name");
+                for (let i = 0; i<removeNameList.length; i++) {
+                    if (removeNameList.options[i].value == `${removeEmployeeName}`)
+                        removeNameList.remove(i);
+                }
+
+                // Remove employee from Edit form dropdown NOT DONE
+                let editNameList = document.getElementById("edit-by-name");
+                for (let i = 0; i<editNameList.length; i++) {
+                    if (editNameList.options[i].value == `${removeEmployeeName}`)
+                        editNameList.remove(i);
+                }
 
                 // Close employee form
                 document.querySelector("#remove-employee-form-popup").style.display = "none";
@@ -591,13 +613,66 @@ class Main{
             console.log("ID was entered!");
             e.preventDefault();
 
-            // Display error message
+            // Do not display error message
             document.querySelector("#remove-employee-error-msg").style.display = "none";
+
+            // Assign form selection to variable
+            let removeEmployeeId = document.querySelector("#remove-by-id").value;
+
+            console.log(removeEmployeeId);
+
+            // Create variable to assign table element
+            let tableRef = document.querySelector("#employee-list-table");
+
+            // Delete row related to name selection
+            tableRef.deleteRow(`${removeEmployeeId}`);
+
+            let removeEmployeeName = this.employees[document.querySelector("#remove-by-id").value-1];
+
+            // Remove employee selected
+            this.employees.splice(removeEmployeeId-1,1);
+
+            console.log(this.employees);
+
+            console.log(removeEmployeeName);
+
+            // Remove employee from Remove form dropdown NOT DONE
+            let removeNameList = document.getElementById("remove-by-name");
+            for (let i = 0; i<removeNameList.length; i++) {
+                if (removeNameList.options[i].value == `${removeEmployeeName.name}`)
+                    removeNameList.remove(i);
+            }
+
+            // Remove employee from Edit form dropdown NOT DONE
+            let editNameList = document.getElementById("edit-by-name");
+            for (let i = 0; i<editNameList.length; i++) {
+                if (editNameList.options[i].value == `${removeEmployeeName.name}`)
+                    editNameList.remove(i);
+            }
+
+            // Close employee form
+            document.querySelector("#remove-employee-form-popup").style.display = "none";
+            document.querySelector(".popup-background").style.display = "none";
+
+            // Insert success message
+            document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully removed!";
+            // Show success message
+            document.querySelector("#success-msg").style.display = "block";
+
+            // Notifications are removed after 5 seconds
+            setTimeout(function(){
+                document.querySelector("#success-msg").style.display = "none";
+            }, 5000);
         }
+        // Reset form upon submission
+        document.querySelector("#remove-employee-form").reset();
 
         console.log("Employee remove button clicked!");
     }
     editEmployee(e){
+        // Reset form upon submission
+        document.querySelector("#edit-employee-form").reset();
+
         console.log("Employee edit save button clicked!");
     }
 }
