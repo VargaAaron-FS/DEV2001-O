@@ -594,6 +594,12 @@ class Main{
                         editNameList.remove(i);
                 }
 
+                // Update indexes (IDs) after removal
+                for (let i = 0; i < this.employees.length; i++){
+                    let updatedTableId = document.getElementById("employee-list-table").rows[i+1].cells;
+                    updatedTableId[0].innerHTML = `${i+1}`;
+                }
+
                 // Close employee form
                 document.querySelector("#remove-employee-form-popup").style.display = "none";
                 document.querySelector(".popup-background").style.display = "none";
@@ -636,14 +642,14 @@ class Main{
 
             console.log(removeEmployeeName);
 
-            // Remove employee from Remove form dropdown NOT DONE
+            // Remove employee from Remove form dropdown
             let removeNameList = document.getElementById("remove-by-name");
             for (let i = 0; i<removeNameList.length; i++) {
                 if (removeNameList.options[i].value == `${removeEmployeeName.name}`)
                     removeNameList.remove(i);
             }
 
-            // Remove employee from Edit form dropdown NOT DONE
+            // Remove employee from Edit form dropdown
             let editNameList = document.getElementById("edit-by-name");
             for (let i = 0; i<editNameList.length; i++) {
                 if (editNameList.options[i].value == `${removeEmployeeName.name}`)
