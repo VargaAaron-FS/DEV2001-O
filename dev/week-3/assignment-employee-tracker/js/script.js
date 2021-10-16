@@ -534,7 +534,7 @@ class Main{
             // Notifications are removed after 5 seconds
             setTimeout(function(){
                 document.querySelector("#success-msg").style.display = "none";
-            }, 5000);
+            }, 3000);
 
             // Reset form upon submission
             document.querySelector("#add-employee-form").reset();
@@ -612,7 +612,7 @@ class Main{
                 // Notifications are removed after 5 seconds
                 setTimeout(function(){
                     document.querySelector("#success-msg").style.display = "none";
-                }, 5000);
+                }, 3000);
             }
         }
         else{
@@ -668,7 +668,7 @@ class Main{
             // Notifications are removed after 5 seconds
             setTimeout(function(){
                 document.querySelector("#success-msg").style.display = "none";
-            }, 5000);
+            }, 3000);
         }
         // Reset form upon submission
         document.querySelector("#remove-employee-form").reset();
