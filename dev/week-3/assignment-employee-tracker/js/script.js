@@ -656,6 +656,12 @@ class Main{
                     editNameList.remove(i);
             }
 
+            // Update indexes (IDs) after removal
+            for (let i = 0; i < this.employees.length; i++){
+                let updatedTableId = document.getElementById("employee-list-table").rows[i+1].cells;
+                updatedTableId[0].innerHTML = `${i+1}`;
+            }
+
             // Close employee form
             document.querySelector("#remove-employee-form-popup").style.display = "none";
             document.querySelector(".popup-background").style.display = "none";
