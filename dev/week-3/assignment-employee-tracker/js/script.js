@@ -305,11 +305,6 @@ class Main{
         document.querySelector("#remove-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
-        // Set immediate focus on first input field for usability
-        (()=>{
-            document.querySelector("#remove-by-name").focus();
-        })();
-
         // Alphabetize dropdown list
         function sortList() {
             let list, i, switching, b, shouldSwitch;
@@ -344,16 +339,16 @@ class Main{
             }
         }
         sortList();
+
+        // Set immediate focus on first input field for usability
+        (()=>{
+            document.querySelector("#remove-by-name").focus();
+        })();
     }
     editEmployeeForm(e){
         // Show edit employee form
         document.querySelector("#edit-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
-
-        // Set immediate focus on first input field for usability
-        (()=>{
-            document.querySelector("#edit-by-name").focus();
-        })();
 
         // Alphabetize dropdown list
         function sortList() {
@@ -389,6 +384,11 @@ class Main{
             }
         }
         sortList();
+
+        // Set immediate focus on first input field for usability
+        (()=>{
+            document.querySelector("#edit-by-name").focus();
+        })();
     }
     displayEmployees(){
         // May not need if it is okay with Instructor to auto-show list and have it update in real-time/automatically
