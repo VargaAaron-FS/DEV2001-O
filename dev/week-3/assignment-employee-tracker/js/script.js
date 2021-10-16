@@ -127,35 +127,40 @@ class Main{
             const scott = new FullTime("Scott",40,19800,10, 40,"FT");
             this.employees.push(scott);
 
-            // function addRow(tableID) {
-                // Get a reference to the table
-                let tableRef = document.getElementById(`employee-list-table`);
+            // Get a reference to the table
+            let tableRef = document.getElementById(`employee-list-table`);
 
-                // Insert a row at the end of the table
-                let newRow = tableRef.insertRow(-1);
+            // Insert a row at the end of the table
+            let newRow = tableRef.insertRow(-1);
 
-                // Insert a cell in the row at index 0
-                let newCell = newRow.insertCell(0);
-                let newCell2 = newRow.insertCell(1);
-                let newCell3 = newRow.insertCell(2);
-                let newCell4 = newRow.insertCell(3);
-                let newCell5 = newRow.insertCell(4);
-                let newCell6 = newRow.insertCell(5);
+            // Insert a cell in the row at index 0
+            let newCell = newRow.insertCell(0);
+            let newCell2 = newRow.insertCell(1);
+            let newCell3 = newRow.insertCell(2);
+            let newCell4 = newRow.insertCell(3);
+            let newCell5 = newRow.insertCell(4);
+            let newCell6 = newRow.insertCell(5);
 
-                // Append a text node to the cell
-                let newId = document.createTextNode(`${this.employees.length}`);
-                let newName = document.createTextNode(`${scott.name}`);
-                let newAnnualSalary = document.createTextNode(`${scott.annualSalary}`);
-                let newHours = document.createTextNode(`${scott.hours}`);
-                let newPayRate = document.createTextNode(`${scott.payRate}`);
-                let newEmployeeType = document.createTextNode(`${scott.employeeType}`);
-                newCell.appendChild(newId);
-                newCell2.appendChild(newName);
-                newCell3.appendChild(newAnnualSalary);
-                newCell4.appendChild(newHours);
-                newCell5.appendChild(newPayRate);
-                newCell6.appendChild(newEmployeeType);
-            // }
+            // Append a text node to the cell
+            let newId = document.createTextNode(`${this.employees.length}`);
+            let newName = document.createTextNode(`${scott.name}`);
+            let newAnnualSalary = document.createTextNode(`${scott.annualSalary}`);
+            let newHours = document.createTextNode(`${scott.hours}`);
+            let newPayRate = document.createTextNode(`${scott.payRate}`);
+            let newEmployeeType = document.createTextNode(`${scott.employeeType}`);
+            newCell.appendChild(newId);
+            newCell2.appendChild(newName);
+            newCell3.appendChild(newAnnualSalary);
+            newCell4.appendChild(newHours);
+            newCell5.appendChild(newPayRate);
+            newCell6.appendChild(newEmployeeType);
+
+            let select = document.getElementById('remove-by-name');
+
+            let opt = document.createElement('option');
+            opt.value = scott.name;
+            opt.innerHTML = scott.name;
+            select.appendChild(opt);
         })();
 
         // Inject Dave's data into HTML
@@ -191,7 +196,13 @@ class Main{
             newCell4.appendChild(newHours);
             newCell5.appendChild(newPayRate);
             newCell6.appendChild(newEmployeeType);
-            // }
+
+            let select = document.getElementById('remove-by-name');
+
+            let opt = document.createElement('option');
+            opt.value = dave.name;
+            opt.innerHTML = dave.name;
+            select.appendChild(opt);
         })();
 
         // Inject Lisa's data into HTML
@@ -227,6 +238,13 @@ class Main{
             newCell4.appendChild(newHours);
             newCell5.appendChild(newPayRate);
             newCell6.appendChild(newEmployeeType);
+
+            let select = document.getElementById('remove-by-name');
+
+            let opt = document.createElement('option');
+            opt.value = lisa.name;
+            opt.innerHTML = lisa.name;
+            select.appendChild(opt);
             // }
         })();
 
@@ -255,6 +273,41 @@ class Main{
         // Show remove employee form
         document.querySelector("#remove-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
+
+        // Alphabetize dropdown list
+        function sortList() {
+            let list, i, switching, b, shouldSwitch;
+            list = document.getElementById("remove-by-name");
+            switching = true;
+            /* Make a loop that will continue until
+            no switching has been done: */
+            while (switching) {
+                // start by saying: no switching is done:
+                switching = false;
+                b = list.getElementsByTagName("option");
+                // Loop through all list-items:
+                for (i = 0; i < (b.length - 1); i++) {
+                    // start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /* check if the next item should
+                    switch place with the current item: */
+                    if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                        /* if next item is alphabetically
+                        lower than current item, mark as a switch
+                        and break the loop: */
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    /* If a switch has been marked, make the switch
+                    and mark the switch as done: */
+                    b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                    switching = true;
+                }
+            }
+        }
+        sortList();
     }
     editEmployeeForm(e){
         // Show edit employee form
@@ -327,6 +380,13 @@ class Main{
                 newCell4.appendChild(newHours);
                 newCell5.appendChild(newPayRate);
                 newCell6.appendChild(newEmployeeType);
+
+                let select = document.getElementById('remove-by-name');
+
+                let opt = document.createElement('option');
+                opt.value = employee.name;
+                opt.innerHTML = employee.name;
+                select.appendChild(opt);
             }
             else{
                 let annualSalary = (hours*payRate*52)-1000;
@@ -368,6 +428,13 @@ class Main{
                 newCell4.appendChild(newHours);
                 newCell5.appendChild(newPayRate);
                 newCell6.appendChild(newEmployeeType);
+
+                let select = document.getElementById('remove-by-name');
+
+                let opt = document.createElement('option');
+                opt.value = employee.name;
+                opt.innerHTML = employee.name;
+                select.appendChild(opt);
             }
 
             // Notifications are removed after 5 seconds
