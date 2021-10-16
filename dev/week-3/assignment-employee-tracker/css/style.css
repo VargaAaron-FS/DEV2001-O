@@ -232,6 +232,10 @@ input, select {
     border-bottom: 2px solid #eeeeee;
 }
 
+#refTr, #refTd {
+    display: none;
+}
+
 footer {
     padding: 2rem 0;
     margin: 2rem 0 0 0;
