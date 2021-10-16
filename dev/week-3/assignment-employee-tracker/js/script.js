@@ -155,12 +155,21 @@ class Main{
             newCell5.appendChild(newPayRate);
             newCell6.appendChild(newEmployeeType);
 
-            let select = document.getElementById('remove-by-name');
+            // Add employee to Remove form dropdown
+            let selectRemove = document.getElementById('remove-by-name');
 
-            let opt = document.createElement('option');
-            opt.value = scott.name;
-            opt.innerHTML = scott.name;
-            select.appendChild(opt);
+            let optRemove = document.createElement('option');
+            optRemove.value = scott.name;
+            optRemove.innerHTML = scott.name;
+            selectRemove.appendChild(optRemove);
+
+            // Add employee to Edit form dropdown
+            let selectEdit = document.getElementById('edit-by-name');
+
+            let optEdit = document.createElement('option');
+            optEdit.value = scott.name;
+            optEdit.innerHTML = scott.name;
+            selectEdit.appendChild(optEdit);
         })();
 
         // Inject Dave's data into HTML
@@ -197,12 +206,21 @@ class Main{
             newCell5.appendChild(newPayRate);
             newCell6.appendChild(newEmployeeType);
 
-            let select = document.getElementById('remove-by-name');
+            // Add employee to Remove form dropdown
+            let selectRemove = document.getElementById('remove-by-name');
 
-            let opt = document.createElement('option');
-            opt.value = dave.name;
-            opt.innerHTML = dave.name;
-            select.appendChild(opt);
+            let optRemove = document.createElement('option');
+            optRemove.value = dave.name;
+            optRemove.innerHTML = dave.name;
+            selectRemove.appendChild(optRemove);
+
+            // Add employee to Edit form dropdown
+            let selectEdit = document.getElementById('edit-by-name');
+
+            let optEdit = document.createElement('option');
+            optEdit.value = dave.name;
+            optEdit.innerHTML = dave.name;
+            selectEdit.appendChild(optEdit);
         })();
 
         // Inject Lisa's data into HTML
@@ -239,12 +257,21 @@ class Main{
             newCell5.appendChild(newPayRate);
             newCell6.appendChild(newEmployeeType);
 
-            let select = document.getElementById('remove-by-name');
+            // Add employee to Remove form dropdown
+            let selectRemove = document.getElementById('remove-by-name');
 
-            let opt = document.createElement('option');
-            opt.value = lisa.name;
-            opt.innerHTML = lisa.name;
-            select.appendChild(opt);
+            let optRemove = document.createElement('option');
+            optRemove.value = lisa.name;
+            optRemove.innerHTML = lisa.name;
+            selectRemove.appendChild(optRemove);
+
+            // Add employee to Edit form dropdown
+            let selectEdit = document.getElementById('edit-by-name');
+
+            let optEdit = document.createElement('option');
+            optEdit.value = lisa.name;
+            optEdit.innerHTML = lisa.name;
+            selectEdit.appendChild(optEdit);
             // }
         })();
 
@@ -313,6 +340,41 @@ class Main{
         // Show edit employee form
         document.querySelector("#edit-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
+
+        // Alphabetize dropdown list
+        function sortList() {
+            let list, i, switching, b, shouldSwitch;
+            list = document.getElementById("edit-by-name");
+            switching = true;
+            /* Make a loop that will continue until
+            no switching has been done: */
+            while (switching) {
+                // start by saying: no switching is done:
+                switching = false;
+                b = list.getElementsByTagName("option");
+                // Loop through all list-items:
+                for (i = 0; i < (b.length - 1); i++) {
+                    // start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /* check if the next item should
+                    switch place with the current item: */
+                    if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                        /* if next item is alphabetically
+                        lower than current item, mark as a switch
+                        and break the loop: */
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    /* If a switch has been marked, make the switch
+                    and mark the switch as done: */
+                    b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                    switching = true;
+                }
+            }
+        }
+        sortList();
     }
     displayEmployees(){
         // May not need if it is okay with Instructor to auto-show list and have it update in real-time/automatically
@@ -381,12 +443,21 @@ class Main{
                 newCell5.appendChild(newPayRate);
                 newCell6.appendChild(newEmployeeType);
 
-                let select = document.getElementById('remove-by-name');
+                // Add employee to Remove form dropdown
+                let selectRemove = document.getElementById('remove-by-name');
 
-                let opt = document.createElement('option');
-                opt.value = employee.name;
-                opt.innerHTML = employee.name;
-                select.appendChild(opt);
+                let optRemove = document.createElement('option');
+                optRemove.value = employee.name;
+                optRemove.innerHTML = employee.name;
+                selectRemove.appendChild(optRemove);
+
+                // Add employee to Edit form dropdown
+                let selectEdit = document.getElementById('edit-by-name');
+
+                let optEdit = document.createElement('option');
+                optEdit.value = employee.name;
+                optEdit.innerHTML = employee.name;
+                selectEdit.appendChild(optEdit);
             }
             else{
                 let annualSalary = (hours*payRate*52)-1000;
@@ -429,12 +500,21 @@ class Main{
                 newCell5.appendChild(newPayRate);
                 newCell6.appendChild(newEmployeeType);
 
-                let select = document.getElementById('remove-by-name');
+                // Add employee to Remove form dropdown
+                let selectRemove = document.getElementById('remove-by-name');
 
-                let opt = document.createElement('option');
-                opt.value = employee.name;
-                opt.innerHTML = employee.name;
-                select.appendChild(opt);
+                let optRemove = document.createElement('option');
+                optRemove.value = employee.name;
+                optRemove.innerHTML = employee.name;
+                selectRemove.appendChild(optRemove);
+
+                // Add employee to Edit form dropdown
+                let selectEdit = document.getElementById('edit-by-name');
+
+                let optEdit = document.createElement('option');
+                optEdit.value = employee.name;
+                optEdit.innerHTML = employee.name;
+                selectEdit.appendChild(optEdit);
             }
 
             // Notifications are removed after 5 seconds
