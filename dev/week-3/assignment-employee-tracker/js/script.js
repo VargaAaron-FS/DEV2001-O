@@ -534,6 +534,67 @@ class Main{
         console.log("Employee add button clicked!");
     }
     removeEmployee(e){
+        e.preventDefault();
+        if(document.querySelector("#remove-by-id").value < 1){
+            e.preventDefault();
+            if(document.querySelector("#remove-by-name").value === "Select a Name"){
+                e.preventDefault();
+
+                // Display error message
+                document.querySelector("#remove-employee-error-msg").style.display = "block";
+                document.querySelector("#remove-employee-error-msg").innerHTML = "Please either choose an employee by name or enter an ID number.";
+            }
+            else{
+                console.log("Name was selected!");
+                e.preventDefault();
+
+                // Do not display error message
+                document.querySelector("#remove-employee-error-msg").style.display = "none";
+
+                // Assign form selection to variable
+                let removeEmployeeName = document.querySelector("#remove-by-name").value;
+
+                // Find the index of selected name value from form
+                const findIndex = this.employees.map(e => e.name).indexOf(removeEmployeeName);
+
+                // console.log(findIndex);
+
+                // console.log(this.employees.splice(findIndex,1));
+
+                // Remove employee selected
+                this.employees.splice(findIndex,1);
+
+                // console.log(this.employees);
+
+                // Create variable to assign table element
+                let table = document.querySelector("#employee-list-table");
+
+                // Delete row related to name selection
+                table.deleteRow(findIndex+1);
+
+                // Close employee form
+                document.querySelector("#remove-employee-form-popup").style.display = "none";
+                document.querySelector(".popup-background").style.display = "none";
+
+                // Insert success message
+                document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully removed!";
+                // Show success message
+                document.querySelector("#success-msg").style.display = "block";
+
+                // Notifications are removed after 5 seconds
+                setTimeout(function(){
+                    document.querySelector("#success-msg").style.display = "none";
+                }, 5000);
+            }
+        }
+        else{
+            console.log("ID was entered!");
+            e.preventDefault();
+
+            // Display error message
+            document.querySelector("#remove-employee-error-msg").style.display = "none";
+        }
+
         console.log("Employee remove button clicked!");
     }
     editEmployee(e){

@@ -55,10 +55,11 @@
         <div class="container">
             <form id="remove-employee-form">
                 <h4>Select Employee -</h4>
+                <p id="remove-employee-error-msg" class="red-text"></p>
                 <div class="form-group">
                     <label for="remove-by-name">By Name:</label>
-                    <select id="remove-by-name" name="remove-by-name" required>
-                        <option value="" selected disabled hidden>Select an Employee</option>
+                    <select id="remove-by-name" name="remove-by-name">
+                        <option value="Select a Name" selected>- Select a Name</option>
                     </select>
                 </div>
                 <p>- Or -</p>
@@ -85,7 +86,7 @@
                 <div class="form-group">
                     <label for="edit-by-name">By Name:</label>
                     <select id="edit-by-name" name="edit-by-name">
-                        <option value="" selected disabled hidden>Select an Employee</option>
+                        <option value="Select a Name" selected>- Select a Name</option>
                     </select>
                 </div>
                 <p>- Or -</p>
@@ -127,7 +128,6 @@
     </header>
     <div class="container">
         <p id="success-msg"></p>
-        <p id="error-msg"></p>
     </div>
     <main>
         <div class="container">
