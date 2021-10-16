@@ -122,67 +122,11 @@ class Main{
         this.employees = [];
 
         // Initial employees
-        const scott = new FullTime("Scott",40,19800,10, 40,"FT");
-        const dave = new FullTime("Dave",50,9400,5, 40,"FT");
-        const lisa = new PartTime("Lisa",30,4992,8, 12,"PT");
-
-        // Push initial employees to array
-        // this.employees.push(scott);
-        // this.employees.push(dave);
-        // this.employees.push(lisa);
-
         // Inject Scott's data into HTML
         (()=>{
-            // Create elements
-            // const idTableData = document.createElement("td");
-            // idTableData.setAttribute("class","id-td");
-            //
-            // const nameTableData = document.createElement("td");
-            // nameTableData.setAttribute("class","name-td");
-            //
-            // const annualSalaryTableData = document.createElement("td");
-            // annualSalaryTableData.setAttribute("class","annual-salary-td");
-            //
-            // const hoursTableData = document.createElement("td");
-            // hoursTableData.setAttribute("class","hours-td");
-            //
-            // const payRateTableData = document.createElement("td");
-            // payRateTableData.setAttribute("class","pay-rate-td");
-            //
-            // const employeeTypeTableData = document.createElement("td");
-            // employeeTypeTableData.setAttribute("class","employee-type-td");
+            const scott = new FullTime("Scott",40,19800,10, 40,"FT");
+            this.employees.push(scott);
 
-            // Create content for new elements
-            // const newContentId = document.createTextNode(`${this.employees.indexOf(scott)+1}`);
-            // const newContentName = document.createTextNode(`${scott.name}`);
-            // const newContentAnnualSalary = document.createTextNode(`${scott.annualSalary}`);
-            // const newContentHours = document.createTextNode(`${scott.hours}`);
-            // const newContentPayRate = document.createTextNode(`${scott.payRate}`);
-            // const newContentEmployeeType = document.createTextNode(`${scott.employeeType}`);
-
-            // Add new content to newly created elements
-            // idTableData.appendChild(newContentId);
-            // nameTableData.appendChild(newContentName);
-            // annualSalaryTableData.appendChild(newContentAnnualSalary);
-            // hoursTableData.appendChild(newContentHours);
-            // payRateTableData.appendChild(newContentPayRate);
-            // employeeTypeTableData.appendChild(newContentEmployeeType);
-
-            // Add the newly created elements and their content into the DOM
-            // const refTr = document.getElementById("ref-tr");
-            // const refTd = document.getElementById("ref-td");
-
-            // document.querySelector("#employee-list-table").insertBefore(idTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(nameTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(annualSalaryTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(hoursTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(payRateTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(employeeTypeTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(employeeTypeTableData, refTd);
-        })();
-
-        // Inject Dave's data into HTML
-        (()=>{
             // function addRow(tableID) {
                 // Get a reference to the table
                 let tableRef = document.getElementById(`employee-list-table`);
@@ -199,7 +143,7 @@ class Main{
                 let newCell6 = newRow.insertCell(5);
 
                 // Append a text node to the cell
-                let newId = document.createTextNode(`${this.employees.length+1}`);
+                let newId = document.createTextNode(`${this.employees.length}`);
                 let newName = document.createTextNode(`${scott.name}`);
                 let newAnnualSalary = document.createTextNode(`${scott.annualSalary}`);
                 let newHours = document.createTextNode(`${scott.hours}`);
@@ -212,71 +156,79 @@ class Main{
                 newCell5.appendChild(newPayRate);
                 newCell6.appendChild(newEmployeeType);
             // }
-
-            // // Call addRow() with the table's ID
-            // addRow('employee-list-table');
-
-            // Create elements
-            // const idTableData = document.createElement("td");
-            // idTableData.setAttribute("class","id-td");
-            //
-            // const nameTableData = document.createElement("td");
-            // nameTableData.setAttribute("class","name-td");
-            //
-            // const annualSalaryTableData = document.createElement("td");
-            // annualSalaryTableData.setAttribute("class","annual-salary-td");
-            //
-            // const hoursTableData = document.createElement("td");
-            // hoursTableData.setAttribute("class","hours-td");
-            //
-            // const payRateTableData = document.createElement("td");
-            // payRateTableData.setAttribute("class","pay-rate-td");
-            //
-            // const employeeTypeTableData = document.createElement("td");
-            // employeeTypeTableData.setAttribute("class","employee-type-td");
-            //
-            // // Create content for new elements
-            // const newContentId = document.createTextNode(`${this.employees.indexOf(dave)+1}`);
-            // const newContentName = document.createTextNode(`${dave.name}`);
-            // const newContentAnnualSalary = document.createTextNode(`${dave.annualSalary}`);
-            // const newContentHours = document.createTextNode(`${dave.hours}`);
-            // const newContentPayRate = document.createTextNode(`${dave.payRate}`);
-            // const newContentEmployeeType = document.createTextNode(`${dave.employeeType}`);
-            //
-            // // Add new content to newly created elements
-            // idTableData.appendChild(newContentId);
-            // nameTableData.appendChild(newContentName);
-            // annualSalaryTableData.appendChild(newContentAnnualSalary);
-            // hoursTableData.appendChild(newContentHours);
-            // payRateTableData.appendChild(newContentPayRate);
-            // employeeTypeTableData.appendChild(newContentEmployeeType);
-            //
-            // // Add the newly created elements and their content into the DOM
-            // let newTableRow = document.createElement("tr");
-            // newTableRow.setAttribute("class","ref-tr");
-            //
-            // let newTableData = document.createElement("ref-td");
-            // newTableData.setAttribute("class","ref-td");
-            //
-            // let refTr = document.getElementsByClassName("ref-tr");
-            // let refTd = document.getElementsByClassName("ref-td");
-            //
-            // document.querySelector("#employee-list-table").insertBefore(newTableRow, newTableRow);
-            // document.querySelector("#employee-list-table").insertBefore(newTableData, newTableRow);
-            //
-            // document.querySelector("#employee-list-table").insertBefore(idTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(nameTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(annualSalaryTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(hoursTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(payRateTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(employeeTypeTableData, refTd);
-            // document.querySelector("#employee-list-table").insertBefore(employeeTypeTableData, refTd);
         })();
 
-        // Inject initial employees into table
-        // Create table row
-        // Create document innerHTML with <td>'s and their inputs?
-        // Create inside of a for each loop
+        // Inject Dave's data into HTML
+        (()=>{
+            const dave = new FullTime("Dave",50,9400,5, 40,"FT");
+            this.employees.push(dave);
+
+            // function addRow(tableID) {
+            // Get a reference to the table
+            let tableRef = document.getElementById(`employee-list-table`);
+
+            // Insert a row at the end of the table
+            let newRow = tableRef.insertRow(-1);
+
+            // Insert a cell in the row at index 0
+            let newCell = newRow.insertCell(0);
+            let newCell2 = newRow.insertCell(1);
+            let newCell3 = newRow.insertCell(2);
+            let newCell4 = newRow.insertCell(3);
+            let newCell5 = newRow.insertCell(4);
+            let newCell6 = newRow.insertCell(5);
+
+            // Append a text node to the cell
+            let newId = document.createTextNode(`${this.employees.length}`);
+            let newName = document.createTextNode(`${dave.name}`);
+            let newAnnualSalary = document.createTextNode(`${dave.annualSalary}`);
+            let newHours = document.createTextNode(`${dave.hours}`);
+            let newPayRate = document.createTextNode(`${dave.payRate}`);
+            let newEmployeeType = document.createTextNode(`${dave.employeeType}`);
+            newCell.appendChild(newId);
+            newCell2.appendChild(newName);
+            newCell3.appendChild(newAnnualSalary);
+            newCell4.appendChild(newHours);
+            newCell5.appendChild(newPayRate);
+            newCell6.appendChild(newEmployeeType);
+            // }
+        })();
+
+        // Inject Lisa's data into HTML
+        (()=>{
+            const lisa = new PartTime("Lisa",30,4992,8, 12,"PT");
+            this.employees.push(lisa);
+
+            // function addRow(tableID) {
+            // Get a reference to the table
+            let tableRef = document.getElementById(`employee-list-table`);
+
+            // Insert a row at the end of the table
+            let newRow = tableRef.insertRow(-1);
+
+            // Insert a cell in the row at index 0
+            let newCell = newRow.insertCell(0);
+            let newCell2 = newRow.insertCell(1);
+            let newCell3 = newRow.insertCell(2);
+            let newCell4 = newRow.insertCell(3);
+            let newCell5 = newRow.insertCell(4);
+            let newCell6 = newRow.insertCell(5);
+
+            // Append a text node to the cell
+            let newId = document.createTextNode(`${this.employees.length}`);
+            let newName = document.createTextNode(`${lisa.name}`);
+            let newAnnualSalary = document.createTextNode(`${lisa.annualSalary}`);
+            let newHours = document.createTextNode(`${lisa.hours}`);
+            let newPayRate = document.createTextNode(`${lisa.payRate}`);
+            let newEmployeeType = document.createTextNode(`${lisa.employeeType}`);
+            newCell.appendChild(newId);
+            newCell2.appendChild(newName);
+            newCell3.appendChild(newAnnualSalary);
+            newCell4.appendChild(newHours);
+            newCell5.appendChild(newPayRate);
+            newCell6.appendChild(newEmployeeType);
+            // }
+        })();
 
         // Button click events
         // Employee tracker tools buttons
@@ -363,7 +315,7 @@ class Main{
                 let newCell6 = newRow.insertCell(5);
 
                 // Append a text node to the cell
-                let newId = document.createTextNode(`${this.employees.length+1}`);
+                let newId = document.createTextNode(`${this.employees.length}`);
                 let newName = document.createTextNode(`${employee.name}`);
                 let newAnnualSalary = document.createTextNode(`${employee.annualSalary}`);
                 let newHours = document.createTextNode(`${employee.hours}`);
@@ -404,7 +356,7 @@ class Main{
                 let newCell6 = newRow.insertCell(5);
 
                 // Append a text node to the cell
-                let newId = document.createTextNode(`${this.employees.length+1}`);
+                let newId = document.createTextNode(`${this.employees.length}`);
                 let newName = document.createTextNode(`${employee.name}`);
                 let newAnnualSalary = document.createTextNode(`${employee.annualSalary}`);
                 let newHours = document.createTextNode(`${employee.hours}`);
