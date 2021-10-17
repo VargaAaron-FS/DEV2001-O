@@ -165,6 +165,8 @@ input, select {
     z-index: 2;
     position: fixed;
     flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #add-employee-form-popup {

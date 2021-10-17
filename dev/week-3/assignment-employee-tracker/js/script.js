@@ -425,6 +425,10 @@ class Main{
         document.querySelector("#add-employee-form").reset();
         document.querySelector("#remove-employee-form").reset();
         document.querySelector("#edit-employee-form").reset();
+
+        // Remove error messages on cancel
+        document.querySelector("#edit-employee-error-msg").style.display = "none";
+        document.querySelector("#remove-employee-error-msg").style.display = "none";
     }
     addEmployee(e){
         if(document.querySelector("#add-name").checkValidity() &&
@@ -703,8 +707,17 @@ class Main{
         console.log("Employee remove button clicked!");
     }
     editEmployee(e){
+        e.preventDefault();
+        if(document.querySelector("#edit-by-id").value < 1) {
+            e.preventDefault();
+            if (document.querySelector("#edit-by-name").value === "Select a Name") {
+                e.preventDefault();
 
-
+                // Display error message
+                document.querySelector("#edit-employee-error-msg").style.display = "block";
+                document.querySelector("#edit-employee-error-msg").innerHTML = "Please either choose an employee by name or enter an ID number.";
+            }
+        }
         // Reset form upon submission
         document.querySelector("#edit-employee-form").reset();
 
