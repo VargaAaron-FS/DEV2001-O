@@ -149,19 +149,21 @@ input, select {
 
 .popup-background {
     display: none;
-    background: rgba(0,0,0,.75);
-    width: 100vw;
+    width: calc(100% - 238px);
     height: 100vh;
+    background: rgba(0,0,0,.5);
     position: fixed;
+    top: 0;
+    right: 0;
 }
 
 .popup {
     background: #fff;
     box-shadow: rgba(0,0,0,.25) 0 0 25px 0;
     width: 238px;
-    height: auto;
+    height: 100vh;
     z-index: 2;
-    position: relative;
+    position: fixed;
     flex-direction: column;
 }
 

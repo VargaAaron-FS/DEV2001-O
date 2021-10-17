@@ -299,6 +299,13 @@ class Main{
         (()=>{
             document.querySelector("#add-name").focus();
         })();
+
+        // Add where if you click the background you will close the form
+        document.querySelector(".popup-background").addEventListener("click", function(e){
+            // Close add employee form
+            document.querySelector("#add-employee-form-popup").style.display = "none";
+            document.querySelector(".popup-background").style.display = "none";
+        })
     }
     removeEmployeeForm(e){
         // Show remove employee form
@@ -344,6 +351,13 @@ class Main{
         (()=>{
             document.querySelector("#remove-by-name").focus();
         })();
+
+        // Add where if you click the background you will close the form
+        document.querySelector(".popup-background").addEventListener("click", function(e){
+            // Close add employee form
+            document.querySelector("#remove-employee-form-popup").style.display = "none";
+            document.querySelector(".popup-background").style.display = "none";
+        })
     }
     editEmployeeForm(e){
         // Show edit employee form
@@ -389,6 +403,13 @@ class Main{
         (()=>{
             document.querySelector("#edit-by-name").focus();
         })();
+
+        // Add where if you click the background you will close the form
+        document.querySelector(".popup-background").addEventListener("click", function(e){
+            // Close add employee form
+            document.querySelector("#edit-employee-form-popup").style.display = "none";
+            document.querySelector(".popup-background").style.display = "none";
+        })
     }
     displayEmployees(){
         // May not need if it is okay with Instructor to auto-show list and have it update in real-time/automatically
