@@ -730,41 +730,21 @@ class Main{
                 // Find the index of selected name value from form
                 const findIndex = this.employees.map(e => e.name).indexOf(editEmployeeName);
 
-                // Remove employee selected
-                this.employees.splice(findIndex,1);
+                // Add new data to pay
+                let i = 0;
+                let editedPay = document.querySelector("#edit-payrate").value;
+                let updatedTableId = document.getElementById("employee-list-table").rows[findIndex+1].cells;
+                updatedTableId[4].innerHTML = `${editedPay}`;
 
                 // Create variable to assign table element
                 let tableRef = document.querySelector("#employee-list-table");
-
-                // Delete row related to name selection
-                tableRef.deleteRow(findIndex+1);
-
-                // Remove employee from Remove form dropdown NOT DONE
-                let removeNameList = document.getElementById("remove-by-name");
-                for (let i = 0; i<removeNameList.length; i++) {
-                    if (removeNameList.options[i].value == `${removeEmployeeName}`)
-                        removeNameList.remove(i);
-                }
-
-                // Remove employee from Edit form dropdown NOT DONE
-                let editNameList = document.getElementById("edit-by-name");
-                for (let i = 0; i<editNameList.length; i++) {
-                    if (editNameList.options[i].value == `${removeEmployeeName}`)
-                        editNameList.remove(i);
-                }
-
-                // Update indexes (IDs) after removal
-                for (let i = 0; i < this.employees.length; i++){
-                    let updatedTableId = document.getElementById("employee-list-table").rows[i+1].cells;
-                    updatedTableId[0].innerHTML = `${i+1}`;
-                }
 
                 // Close employee form
                 document.querySelector("#edit-employee-form-popup").style.display = "none";
                 document.querySelector(".popup-background").style.display = "none";
 
                 // Insert success message
-                document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully removed!";
+                document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully edited!";
                 // Show success message
                 document.querySelector("#success-msg").style.display = "block";
 
@@ -806,7 +786,7 @@ class Main{
             document.querySelector(".popup-background").style.display = "none";
 
             // Insert success message
-            document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully removed!";
+            document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully edited!";
             // Show success message
             document.querySelector("#success-msg").style.display = "block";
 
