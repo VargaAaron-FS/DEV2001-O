@@ -682,6 +682,8 @@ class Main{
         console.log("Employee remove button clicked!");
     }
     editEmployee(e){
+
+
         // Reset form upon submission
         document.querySelector("#edit-employee-form").reset();
 
