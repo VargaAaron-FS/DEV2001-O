@@ -507,7 +507,7 @@ class Main{
                 this.employees.push(employee);
 
                 // Insert success message
-                document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully created!";
+                document.querySelector("#success-msg").innerHTML = "<i class='fas fa-check'></i> Employee successfully added!";
                 // Show success  message
                 document.querySelector("#success-msg").style.display = "block";
 
@@ -769,20 +769,14 @@ class Main{
             // Create variable to assign table element
             let tableRef = document.querySelector("#employee-list-table");
 
-            // Delete row related to name selection
-            tableRef.deleteRow(`${editEmployeeId}`);
-
-            let editEmployeeName = this.employees[document.querySelector("#edit-by-id").value-1];
-
-            // Remove employee selected
-            this.employees.splice(editEmployeeId-1,1);
-
-            console.log(this.employees);
-
-            console.log(editEmployeeName);
+            // Add new data to pay
+            let i = 0;
+            let editedPay = document.querySelector("#edit-payrate").value;
+            let updatedTableId = document.getElementById("employee-list-table").rows[editEmployeeId].cells;
+            updatedTableId[4].innerHTML = `${editedPay}`;
 
             // Close employee form
-            document.querySelector("#remove-employee-form-popup").style.display = "none";
+            document.querySelector("#edit-employee-form-popup").style.display = "none";
             document.querySelector(".popup-background").style.display = "none";
 
             // Insert success message
