@@ -717,7 +717,7 @@ class Main{
                 document.querySelector("#edit-employee-error-msg").style.display = "block";
                 document.querySelector("#edit-employee-error-msg").innerHTML = "Please either choose an employee by name or enter an ID number.";
             }
-            else{
+            else if (document.querySelector("#edit-payrate").reportValidity()){
                 console.log("Name was selected!");
                 e.preventDefault();
 
@@ -754,7 +754,7 @@ class Main{
                 }, 3000);
             }
         }
-        else{
+        else if(document.querySelector("#edit-payrate").reportValidity()){
             console.log("ID was entered!");
             e.preventDefault();
 
@@ -788,9 +788,10 @@ class Main{
             setTimeout(function(){
                 document.querySelector("#success-msg").style.display = "none";
             }, 3000);
+
+            // Reset form upon submission
+            document.querySelector("#edit-employee-form").reset();
         }
-        // Reset form upon submission
-        document.querySelector("#edit-employee-form").reset();
 
         console.log("Employee edit save button clicked!");
     }
