@@ -312,40 +312,7 @@ class Main{
         document.querySelector("#remove-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
-        // Alphabetize dropdown list
-        function sortList() {
-            let list, i, switching, b, shouldSwitch;
-            list = document.getElementById("remove-by-name");
-            switching = true;
-            /* Make a loop that will continue until
-            no switching has been done: */
-            while (switching) {
-                // start by saying: no switching is done:
-                switching = false;
-                b = list.getElementsByTagName("option");
-                // Loop through all list-items:
-                for (i = 0; i < (b.length - 1); i++) {
-                    // start by saying there should be no switching:
-                    shouldSwitch = false;
-                    /* check if the next item should
-                    switch place with the current item: */
-                    if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-                        /* if next item is alphabetically
-                        lower than current item, mark as a switch
-                        and break the loop: */
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-                if (shouldSwitch) {
-                    /* If a switch has been marked, make the switch
-                    and mark the switch as done: */
-                    b[i].parentNode.insertBefore(b[i + 1], b[i]);
-                    switching = true;
-                }
-            }
-        }
-        sortList();
+        sortRemoveList();
 
         // Set immediate focus on first input field for usability
         (()=>{
@@ -364,40 +331,7 @@ class Main{
         document.querySelector("#edit-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
-        // Alphabetize dropdown list
-        function sortList() {
-            let list, i, switching, b, shouldSwitch;
-            list = document.getElementById("edit-by-name");
-            switching = true;
-            /* Make a loop that will continue until
-            no switching has been done: */
-            while (switching) {
-                // start by saying: no switching is done:
-                switching = false;
-                b = list.getElementsByTagName("option");
-                // Loop through all list-items:
-                for (i = 0; i < (b.length - 1); i++) {
-                    // start by saying there should be no switching:
-                    shouldSwitch = false;
-                    /* check if the next item should
-                    switch place with the current item: */
-                    if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-                        /* if next item is alphabetically
-                        lower than current item, mark as a switch
-                        and break the loop: */
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-                if (shouldSwitch) {
-                    /* If a switch has been marked, make the switch
-                    and mark the switch as done: */
-                    b[i].parentNode.insertBefore(b[i + 1], b[i]);
-                    switching = true;
-                }
-            }
-        }
-        sortList();
+        sortEditList();
 
         // Set immediate focus on first input field for usability
         (()=>{
@@ -794,6 +728,74 @@ class Main{
         }
 
         console.log("Employee edit save button clicked!");
+    }
+}
+
+// Alphabetize REMOVE dropdown list
+function sortRemoveList() {
+    let list, i, switching, b, shouldSwitch;
+    list = document.getElementById("remove-by-name");
+    switching = true;
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+        // start by saying: no switching is done:
+        switching = false;
+        b = list.getElementsByTagName("option");
+        // Loop through all list-items:
+        for (i = 0; i < (b.length - 1); i++) {
+            // start by saying there should be no switching:
+            shouldSwitch = false;
+            /* check if the next item should
+            switch place with the current item: */
+            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                /* if next item is alphabetically
+                lower than current item, mark as a switch
+                and break the loop: */
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
+    }
+}
+
+// Alphabetize EDIT dropdown list
+function sortEditList() {
+    let list, i, switching, b, shouldSwitch;
+    list = document.getElementById("edit-by-name");
+    switching = true;
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+        // start by saying: no switching is done:
+        switching = false;
+        b = list.getElementsByTagName("option");
+        // Loop through all list-items:
+        for (i = 0; i < (b.length - 1); i++) {
+            // start by saying there should be no switching:
+            shouldSwitch = false;
+            /* check if the next item should
+            switch place with the current item: */
+            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                /* if next item is alphabetically
+                lower than current item, mark as a switch
+                and break the loop: */
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
     }
 }
 
