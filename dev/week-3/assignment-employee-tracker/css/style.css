@@ -121,6 +121,14 @@ nav button {
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
+    -webkit-animation: fade-out-success-msg 5s ease-out;
+    -moz-animation: fade-out-success-msg 5s ease-out;
+    animation: fade-out-success-msg 5s ease-out;
+}
+
+@-webkit-keyframes fade-out-success-msg {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .red-text {

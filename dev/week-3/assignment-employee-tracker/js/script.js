@@ -497,7 +497,6 @@ class Main{
             document.querySelector("#add-employee-form-popup").style.display = "none";
             document.querySelector(".popup-background").style.display = "none";
         }
-        console.log("Employee add button clicked!");
     }
     removeEmployee(e){
         e.preventDefault();
@@ -511,7 +510,7 @@ class Main{
                 document.querySelector("#remove-employee-error-msg").innerHTML = "Please either choose an employee by name or enter an ID number.";
             }
             else{
-                console.log("Name was selected!");
+                // Name was selected
                 e.preventDefault();
 
                 // Do not display error message
@@ -520,8 +519,16 @@ class Main{
                 // Assign form selection to variable
                 let removeEmployeeName = document.querySelector("#remove-by-name").value;
 
+                const filteredName = this.employees.filter(function(employeeName) {
+                   return employeeName.name === removeEmployeeName;
+                });
+
+                let filteredNameMatch = filteredName[0].name;
+
+                console.log(filteredNameMatch);
+
                 // Find the index of selected name value from form
-                const findIndex = this.employees.map(e => e.name).indexOf(removeEmployeeName);
+                const findIndex = this.employees.map(e => e.name).indexOf(filteredNameMatch);
 
                 // Remove employee selected
                 this.employees.splice(findIndex,1);
@@ -532,14 +539,14 @@ class Main{
                 // Delete row related to name selection
                 tableRef.deleteRow(findIndex+1);
 
-                // Remove employee from Remove form dropdown NOT DONE
+                // Remove employee from Remove form dropdown
                 let removeNameList = document.getElementById("remove-by-name");
                 for (let i = 0; i<removeNameList.length; i++) {
                     if (removeNameList.options[i].value == `${removeEmployeeName}`)
                         removeNameList.remove(i);
                 }
 
-                // Remove employee from Edit form dropdown NOT DONE
+                // Remove employee from Edit form dropdown
                 let editNameList = document.getElementById("edit-by-name");
                 for (let i = 0; i<editNameList.length; i++) {
                     if (editNameList.options[i].value == `${removeEmployeeName}`)
@@ -568,7 +575,7 @@ class Main{
             }
         }
         else{
-            console.log("ID was entered!");
+            // ID was entered
             e.preventDefault();
 
             // Do not display error message
@@ -576,8 +583,6 @@ class Main{
 
             // Assign form selection to variable
             let removeEmployeeId = document.querySelector("#remove-by-id").value;
-
-            console.log(removeEmployeeId);
 
             // Create variable to assign table element
             let tableRef = document.querySelector("#employee-list-table");
@@ -589,10 +594,6 @@ class Main{
 
             // Remove employee selected
             this.employees.splice(removeEmployeeId-1,1);
-
-            console.log(this.employees);
-
-            console.log(removeEmployeeName);
 
             // Remove employee from Remove form dropdown
             let removeNameList = document.getElementById("remove-by-name");
@@ -630,8 +631,6 @@ class Main{
         }
         // Reset form upon submission
         document.querySelector("#remove-employee-form").reset();
-
-        console.log("Employee remove button clicked!");
     }
     editEmployee(e){
         e.preventDefault();
@@ -645,7 +644,7 @@ class Main{
                 document.querySelector("#edit-employee-error-msg").innerHTML = "Please either choose an employee by name or enter an ID number.";
             }
             else if (document.querySelector("#edit-payrate").reportValidity()){
-                console.log("Name was selected!");
+                // Name was selected
                 e.preventDefault();
 
                 // Do not display error message
@@ -679,10 +678,13 @@ class Main{
                 setTimeout(function(){
                     document.querySelector("#success-msg").style.display = "none";
                 }, 5000);
+
+                // Reset form upon submission
+                document.querySelector("#edit-employee-form").reset();
             }
         }
         else if(document.querySelector("#edit-payrate").reportValidity()){
-            console.log("ID was entered!");
+            // ID was entered
             e.preventDefault();
 
             // Do not display error message
@@ -690,8 +692,6 @@ class Main{
 
             // Assign form selection to variable
             let editEmployeeId = document.querySelector("#edit-by-id").value;
-
-            console.log(editEmployeeId);
 
             // Create variable to assign table element
             let tableRef = document.querySelector("#employee-list-table");
@@ -719,8 +719,6 @@ class Main{
             // Reset form upon submission
             document.querySelector("#edit-employee-form").reset();
         }
-
-        console.log("Employee edit save button clicked!");
     }
     sortEditList(){
         // Alphabetize EDIT dropdown list
