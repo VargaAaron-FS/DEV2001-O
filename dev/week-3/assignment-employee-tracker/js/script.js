@@ -85,7 +85,6 @@ class Employee{
         this.name = name;
         this.age = age;
         this.annualSalary = annualSalary;
-        console.log("Employee created!");
     }
 }
 
@@ -95,10 +94,11 @@ class PartTime extends Employee{
         this.payRate = payRate;
         this.hours = hours;
         this.employeeType = "PT";
-        console.log("PartTime Employee created!");
     }
-    calculatePay(){
-        console.log(this.hours*this.payRate*52);
+    calculatePay(hours,payRate){
+        this.hours = hours;
+        this.payRate = payRate;
+        return hours*payRate*52;
     }
 }
 
@@ -108,171 +108,22 @@ class FullTime extends Employee{
         this.payRate = payRate;
         this.hours = 40;
         this.employeeType = "FT";
-        console.log("FullTime Employee created!");
     }
-    calculatePay(){
-        console.log((this.hours*this.payRate*52)-1000);
+    calculatePay(hours,payRate){
+        this.hours = hours;
+        this.payRate = payRate;
+        return (hours*payRate*52)-1000;
     }
 }
 
 class Main{
     constructor() {
-        console.log("Main created!");
-
         this.employees = [];
 
-        // Initial employees
-        // Inject Scott's data into HTML
-        (()=>{
-            const scott = new FullTime("Scott",40,19800,10, 40,"FT");
-            this.employees.push(scott);
-
-            // Get a reference to the table
-            let tableRef = document.getElementById(`employee-list-table`);
-
-            // Insert a row at the end of the table
-            let newRow = tableRef.insertRow(-1);
-
-            // Insert a cell in the row at index 0
-            let newCell = newRow.insertCell(0);
-            let newCell2 = newRow.insertCell(1);
-            let newCell3 = newRow.insertCell(2);
-            let newCell4 = newRow.insertCell(3);
-            let newCell5 = newRow.insertCell(4);
-            let newCell6 = newRow.insertCell(5);
-
-            // Append a text node to the cell
-            let newId = document.createTextNode(`${this.employees.length}`);
-            let newName = document.createTextNode(`${scott.name}`);
-            let newAnnualSalary = document.createTextNode(`${scott.annualSalary}`);
-            let newHours = document.createTextNode(`${scott.hours}`);
-            let newPayRate = document.createTextNode(`${scott.payRate}`);
-            let newEmployeeType = document.createTextNode(`${scott.employeeType}`);
-            newCell.appendChild(newId);
-            newCell2.appendChild(newName);
-            newCell3.appendChild(newAnnualSalary);
-            newCell4.appendChild(newHours);
-            newCell5.appendChild(newPayRate);
-            newCell6.appendChild(newEmployeeType);
-
-            // Add employee to Remove form dropdown
-            let selectRemove = document.getElementById('remove-by-name');
-
-            let optRemove = document.createElement('option');
-            optRemove.value = scott.name;
-            optRemove.innerHTML = scott.name;
-            selectRemove.appendChild(optRemove);
-
-            // Add employee to Edit form dropdown
-            let selectEdit = document.getElementById('edit-by-name');
-
-            let optEdit = document.createElement('option');
-            optEdit.value = scott.name;
-            optEdit.innerHTML = scott.name;
-            selectEdit.appendChild(optEdit);
-        })();
-
-        // Inject Dave's data into HTML
-        (()=>{
-            const dave = new FullTime("Dave",50,9400,5, 40,"FT");
-            this.employees.push(dave);
-
-            // Get a reference to the table
-            let tableRef = document.getElementById(`employee-list-table`);
-
-            // Insert a row at the end of the table
-            let newRow = tableRef.insertRow(-1);
-
-            // Insert a cell in the row at index 0
-            let newCell = newRow.insertCell(0);
-            let newCell2 = newRow.insertCell(1);
-            let newCell3 = newRow.insertCell(2);
-            let newCell4 = newRow.insertCell(3);
-            let newCell5 = newRow.insertCell(4);
-            let newCell6 = newRow.insertCell(5);
-
-            // Append a text node to the cell
-            let newId = document.createTextNode(`${this.employees.length}`);
-            let newName = document.createTextNode(`${dave.name}`);
-            let newAnnualSalary = document.createTextNode(`${dave.annualSalary}`);
-            let newHours = document.createTextNode(`${dave.hours}`);
-            let newPayRate = document.createTextNode(`${dave.payRate}`);
-            let newEmployeeType = document.createTextNode(`${dave.employeeType}`);
-            newCell.appendChild(newId);
-            newCell2.appendChild(newName);
-            newCell3.appendChild(newAnnualSalary);
-            newCell4.appendChild(newHours);
-            newCell5.appendChild(newPayRate);
-            newCell6.appendChild(newEmployeeType);
-
-            // Add employee to Remove form dropdown
-            let selectRemove = document.getElementById('remove-by-name');
-
-            let optRemove = document.createElement('option');
-            optRemove.value = dave.name;
-            optRemove.innerHTML = dave.name;
-            selectRemove.appendChild(optRemove);
-
-            // Add employee to Edit form dropdown
-            let selectEdit = document.getElementById('edit-by-name');
-
-            let optEdit = document.createElement('option');
-            optEdit.value = dave.name;
-            optEdit.innerHTML = dave.name;
-            selectEdit.appendChild(optEdit);
-        })();
-
-        // Inject Lisa's data into HTML
-        (()=>{
-            const lisa = new PartTime("Lisa",30,4992,8, 12,"PT");
-            this.employees.push(lisa);
-
-            // function addRow(tableID) {
-            // Get a reference to the table
-            let tableRef = document.getElementById(`employee-list-table`);
-
-            // Insert a row at the end of the table
-            let newRow = tableRef.insertRow(-1);
-
-            // Insert a cell in the row at index 0
-            let newCell = newRow.insertCell(0);
-            let newCell2 = newRow.insertCell(1);
-            let newCell3 = newRow.insertCell(2);
-            let newCell4 = newRow.insertCell(3);
-            let newCell5 = newRow.insertCell(4);
-            let newCell6 = newRow.insertCell(5);
-
-            // Append a text node to the cell
-            let newId = document.createTextNode(`${this.employees.length}`);
-            let newName = document.createTextNode(`${lisa.name}`);
-            let newAnnualSalary = document.createTextNode(`${lisa.annualSalary}`);
-            let newHours = document.createTextNode(`${lisa.hours}`);
-            let newPayRate = document.createTextNode(`${lisa.payRate}`);
-            let newEmployeeType = document.createTextNode(`${lisa.employeeType}`);
-            newCell.appendChild(newId);
-            newCell2.appendChild(newName);
-            newCell3.appendChild(newAnnualSalary);
-            newCell4.appendChild(newHours);
-            newCell5.appendChild(newPayRate);
-            newCell6.appendChild(newEmployeeType);
-
-            // Add employee to Remove form dropdown
-            let selectRemove = document.getElementById('remove-by-name');
-
-            let optRemove = document.createElement('option');
-            optRemove.value = lisa.name;
-            optRemove.innerHTML = lisa.name;
-            selectRemove.appendChild(optRemove);
-
-            // Add employee to Edit form dropdown
-            let selectEdit = document.getElementById('edit-by-name');
-
-            let optEdit = document.createElement('option');
-            optEdit.value = lisa.name;
-            optEdit.innerHTML = lisa.name;
-            selectEdit.appendChild(optEdit);
-            // }
-        })();
+        // Initial employees - CREATE FUNCTIONS TO INSERT EACH EMPLOYEES DATA AFTER INITIAL PUSH TO ARRAY
+        this.createScott();
+        this.createDave();
+        this.createLisa();
 
         // Button click events
         // Employee tracker tools buttons
@@ -290,15 +141,161 @@ class Main{
         document.querySelector("#remove-submit-btn").addEventListener("click", (e)=>this.removeEmployee(e));
         document.querySelector("#edit-submit-btn").addEventListener("click", (e)=>this.editEmployee(e));
     }
+    createScott(){
+        // Inject Scott's data into HTML
+        const scott = new FullTime("Scott",40,19800,10, 40,"FT");
+        this.employees.push(scott);
+
+        // Get a reference to the table
+        let tableRef = document.getElementById(`employee-list-table`);
+
+        // Insert a row at the end of the table
+        let newRow = tableRef.insertRow(-1);
+
+        // Insert a cell in the row at index
+        let newCell = newRow.insertCell(0);
+        let newCell2 = newRow.insertCell(1);
+        let newCell3 = newRow.insertCell(2);
+        let newCell4 = newRow.insertCell(3);
+        let newCell5 = newRow.insertCell(4);
+        let newCell6 = newRow.insertCell(5);
+
+        // Append a text node to the cell
+        let newId = document.createTextNode(`${this.employees.length}`);
+        let newName = document.createTextNode(`${scott.name}`);
+        let newAnnualSalary = document.createTextNode(`${scott.annualSalary}`);
+        let newHours = document.createTextNode(`${scott.hours}`);
+        let newPayRate = document.createTextNode(`${scott.payRate}`);
+        let newEmployeeType = document.createTextNode(`${scott.employeeType}`);
+        newCell.appendChild(newId);
+        newCell2.appendChild(newName);
+        newCell3.appendChild(newAnnualSalary);
+        newCell4.appendChild(newHours);
+        newCell5.appendChild(newPayRate);
+        newCell6.appendChild(newEmployeeType);
+
+        // Add employee to Remove form dropdown
+        let selectRemove = document.getElementById('remove-by-name');
+
+        let optRemove = document.createElement('option');
+        optRemove.value = scott.name;
+        optRemove.innerHTML = scott.name;
+        selectRemove.appendChild(optRemove);
+
+        // Add employee to Edit form dropdown
+        let selectEdit = document.getElementById('edit-by-name');
+
+        let optEdit = document.createElement('option');
+        optEdit.value = scott.name;
+        optEdit.innerHTML = scott.name;
+        selectEdit.appendChild(optEdit);
+    }
+    createDave(){
+        // Inject Dave's data into HTML
+        const dave = new FullTime("Dave",50,9400,5, 40,"FT");
+        this.employees.push(dave);
+
+        // Get a reference to the table
+        let tableRef = document.getElementById(`employee-list-table`);
+
+        // Insert a row at the end of the table
+        let newRow = tableRef.insertRow(-1);
+
+        // Insert a cell in the row at index 0
+        let newCell = newRow.insertCell(0);
+        let newCell2 = newRow.insertCell(1);
+        let newCell3 = newRow.insertCell(2);
+        let newCell4 = newRow.insertCell(3);
+        let newCell5 = newRow.insertCell(4);
+        let newCell6 = newRow.insertCell(5);
+
+        // Append a text node to the cell
+        let newId = document.createTextNode(`${this.employees.length}`);
+        let newName = document.createTextNode(`${dave.name}`);
+        let newAnnualSalary = document.createTextNode(`${dave.annualSalary}`);
+        let newHours = document.createTextNode(`${dave.hours}`);
+        let newPayRate = document.createTextNode(`${dave.payRate}`);
+        let newEmployeeType = document.createTextNode(`${dave.employeeType}`);
+        newCell.appendChild(newId);
+        newCell2.appendChild(newName);
+        newCell3.appendChild(newAnnualSalary);
+        newCell4.appendChild(newHours);
+        newCell5.appendChild(newPayRate);
+        newCell6.appendChild(newEmployeeType);
+
+        // Add employee to Remove form dropdown
+        let selectRemove = document.getElementById('remove-by-name');
+
+        let optRemove = document.createElement('option');
+        optRemove.value = dave.name;
+        optRemove.innerHTML = dave.name;
+        selectRemove.appendChild(optRemove);
+
+        // Add employee to Edit form dropdown
+        let selectEdit = document.getElementById('edit-by-name');
+
+        let optEdit = document.createElement('option');
+        optEdit.value = dave.name;
+        optEdit.innerHTML = dave.name;
+        selectEdit.appendChild(optEdit);
+    }
+    createLisa(){
+        // Inject Lisa's data into HTML
+        const lisa = new PartTime("Lisa",30,4992,8, 12,"PT");
+        this.employees.push(lisa);
+
+        // function addRow(tableID) {
+        // Get a reference to the table
+        let tableRef = document.getElementById(`employee-list-table`);
+
+        // Insert a row at the end of the table
+        let newRow = tableRef.insertRow(-1);
+
+        // Insert a cell in the row at index 0
+        let newCell = newRow.insertCell(0);
+        let newCell2 = newRow.insertCell(1);
+        let newCell3 = newRow.insertCell(2);
+        let newCell4 = newRow.insertCell(3);
+        let newCell5 = newRow.insertCell(4);
+        let newCell6 = newRow.insertCell(5);
+
+        // Append a text node to the cell
+        let newId = document.createTextNode(`${this.employees.length}`);
+        let newName = document.createTextNode(`${lisa.name}`);
+        let newAnnualSalary = document.createTextNode(`${lisa.annualSalary}`);
+        let newHours = document.createTextNode(`${lisa.hours}`);
+        let newPayRate = document.createTextNode(`${lisa.payRate}`);
+        let newEmployeeType = document.createTextNode(`${lisa.employeeType}`);
+        newCell.appendChild(newId);
+        newCell2.appendChild(newName);
+        newCell3.appendChild(newAnnualSalary);
+        newCell4.appendChild(newHours);
+        newCell5.appendChild(newPayRate);
+        newCell6.appendChild(newEmployeeType);
+
+        // Add employee to Remove form dropdown
+        let selectRemove = document.getElementById('remove-by-name');
+
+        let optRemove = document.createElement('option');
+        optRemove.value = lisa.name;
+        optRemove.innerHTML = lisa.name;
+        selectRemove.appendChild(optRemove);
+
+        // Add employee to Edit form dropdown
+        let selectEdit = document.getElementById('edit-by-name');
+
+        let optEdit = document.createElement('option');
+        optEdit.value = lisa.name;
+        optEdit.innerHTML = lisa.name;
+        selectEdit.appendChild(optEdit);
+    }
     addEmployeeForm(e){
         // Show add employee form
         document.querySelector("#add-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
         // Set immediate focus on first input field for usability
-        (()=>{
-            document.querySelector("#add-name").focus();
-        })();
+        document.querySelector("#add-name").focus();
 
         // Add where if you click the background you will close the form
         document.querySelector(".popup-background").addEventListener("click", function(e){
@@ -312,12 +309,10 @@ class Main{
         document.querySelector("#remove-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
-        sortRemoveList();
+        this.sortRemoveList();
 
         // Set immediate focus on first input field for usability
-        (()=>{
-            document.querySelector("#remove-by-name").focus();
-        })();
+        document.querySelector("#remove-by-name").focus();
 
         // Add where if you click the background you will close the form
         document.querySelector(".popup-background").addEventListener("click", function(e){
@@ -331,12 +326,10 @@ class Main{
         document.querySelector("#edit-employee-form-popup").style.display = "flex";
         document.querySelector(".popup-background").style.display = "flex";
 
-        sortEditList();
+        this.sortEditList();
 
         // Set immediate focus on first input field for usability
-        (()=>{
-            document.querySelector("#edit-by-name").focus();
-        })();
+        document.querySelector("#edit-by-name").focus();
 
         // Add where if you click the background you will close the form
         document.querySelector(".popup-background").addEventListener("click", function(e){
@@ -376,7 +369,7 @@ class Main{
             let hours = document.querySelector("#add-hours").value;
 
             if(hours < 40){
-                let annualSalary = (hours * payRate) * 52;
+                let annualSalary = new PartTime().calculatePay(hours,payRate);
 
                 let employee = new PartTime(name,age,annualSalary,payRate,hours);
 
@@ -433,7 +426,7 @@ class Main{
                 selectEdit.appendChild(optEdit);
             }
             else{
-                let annualSalary = (hours*payRate*52)-1000;
+                let annualSalary = new FullTime().calculatePay(hours,payRate);
 
                 let employee = new FullTime(name,age,annualSalary,payRate,hours);
 
@@ -493,7 +486,7 @@ class Main{
             // Notifications are removed after 5 seconds
             setTimeout(function(){
                 document.querySelector("#success-msg").style.display = "none";
-            }, 3000);
+            }, 5000);
 
             // Reset form upon submission
             document.querySelector("#add-employee-form").reset();
@@ -571,7 +564,7 @@ class Main{
                 // Notifications are removed after 5 seconds
                 setTimeout(function(){
                     document.querySelector("#success-msg").style.display = "none";
-                }, 3000);
+                }, 5000);
             }
         }
         else{
@@ -633,7 +626,7 @@ class Main{
             // Notifications are removed after 5 seconds
             setTimeout(function(){
                 document.querySelector("#success-msg").style.display = "none";
-            }, 3000);
+            }, 5000);
         }
         // Reset form upon submission
         document.querySelector("#remove-employee-form").reset();
@@ -685,7 +678,7 @@ class Main{
                 // Notifications are removed after 5 seconds
                 setTimeout(function(){
                     document.querySelector("#success-msg").style.display = "none";
-                }, 3000);
+                }, 5000);
             }
         }
         else if(document.querySelector("#edit-payrate").reportValidity()){
@@ -721,7 +714,7 @@ class Main{
             // Notifications are removed after 5 seconds
             setTimeout(function(){
                 document.querySelector("#success-msg").style.display = "none";
-            }, 3000);
+            }, 5000);
 
             // Reset form upon submission
             document.querySelector("#edit-employee-form").reset();
@@ -729,72 +722,70 @@ class Main{
 
         console.log("Employee edit save button clicked!");
     }
-}
-
-// Alphabetize REMOVE dropdown list
-function sortRemoveList() {
-    let list, i, switching, b, shouldSwitch;
-    list = document.getElementById("remove-by-name");
-    switching = true;
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-        // start by saying: no switching is done:
-        switching = false;
-        b = list.getElementsByTagName("option");
-        // Loop through all list-items:
-        for (i = 0; i < (b.length - 1); i++) {
-            // start by saying there should be no switching:
-            shouldSwitch = false;
-            /* check if the next item should
-            switch place with the current item: */
-            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-                /* if next item is alphabetically
-                lower than current item, mark as a switch
-                and break the loop: */
-                shouldSwitch = true;
-                break;
+    sortEditList(){
+        // Alphabetize EDIT dropdown list
+        let list, i, switching, b, shouldSwitch;
+        list = document.getElementById("edit-by-name");
+        switching = true;
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+            // start by saying: no switching is done:
+            switching = false;
+            b = list.getElementsByTagName("option");
+            // Loop through all list-items:
+            for (i = 0; i < (b.length - 1); i++) {
+                // start by saying there should be no switching:
+                shouldSwitch = false;
+                /* check if the next item should
+                switch place with the current item: */
+                if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                    /* if next item is alphabetically
+                    lower than current item, mark as a switch
+                    and break the loop: */
+                    shouldSwitch = true;
+                    break;
+                }
             }
-        }
-        if (shouldSwitch) {
-            /* If a switch has been marked, make the switch
-            and mark the switch as done: */
-            b[i].parentNode.insertBefore(b[i + 1], b[i]);
-            switching = true;
+            if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark the switch as done: */
+                b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                switching = true;
+            }
         }
     }
-}
-
-// Alphabetize EDIT dropdown list
-function sortEditList() {
-    let list, i, switching, b, shouldSwitch;
-    list = document.getElementById("edit-by-name");
-    switching = true;
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-        // start by saying: no switching is done:
-        switching = false;
-        b = list.getElementsByTagName("option");
-        // Loop through all list-items:
-        for (i = 0; i < (b.length - 1); i++) {
-            // start by saying there should be no switching:
-            shouldSwitch = false;
-            /* check if the next item should
-            switch place with the current item: */
-            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-                /* if next item is alphabetically
-                lower than current item, mark as a switch
-                and break the loop: */
-                shouldSwitch = true;
-                break;
+    sortRemoveList(){
+        // Alphabetize REMOVE dropdown list
+        let list, i, switching, b, shouldSwitch;
+        list = document.getElementById("remove-by-name");
+        switching = true;
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+            // start by saying: no switching is done:
+            switching = false;
+            b = list.getElementsByTagName("option");
+            // Loop through all list-items:
+            for (i = 0; i < (b.length - 1); i++) {
+                // start by saying there should be no switching:
+                shouldSwitch = false;
+                /* check if the next item should
+                switch place with the current item: */
+                if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                    /* if next item is alphabetically
+                    lower than current item, mark as a switch
+                    and break the loop: */
+                    shouldSwitch = true;
+                    break;
+                }
             }
-        }
-        if (shouldSwitch) {
-            /* If a switch has been marked, make the switch
-            and mark the switch as done: */
-            b[i].parentNode.insertBefore(b[i + 1], b[i]);
-            switching = true;
+            if (shouldSwitch) {
+                /* If a switch has been marked, make the switch
+                and mark the switch as done: */
+                b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                switching = true;
+            }
         }
     }
 }

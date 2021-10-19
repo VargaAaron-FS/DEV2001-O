@@ -1,0 +1,50 @@
+{
+  "cars": [
+    {
+      "make": "Ford",
+      "model": "F-150",
+      "year": 2010,
+      "owners": [
+        "dave",
+        "lisa",
+        "roger"
+      ],
+      "image": "mycar.jpg"
+    },
+    {
+      "make": "Kia",
+      "model": "Optima",
+      "year": 2015,
+      "owners":[
+        "bob",
+        "jessica"
+      ],
+      "image": "mycar2.jpg"
+    }
+  ],
+  "garage": "Scott's Garage"
+}
+
+{
+  "movieTheatre": "Bobs Movie Plex",
+  "address": {
+    "city": "Orlando",
+    "state": "FL"
+  },
+  "movies": [{
+    "title": "Aliens",
+    "rating": "R",
+    "duration": "127"
+  },
+    {
+      "title": "Matrix",
+      "rating": "PG",
+      "duration": "200"
+    },
+    {
+      "title": "Endgame",
+      "rating": "PG-13",
+      "duration": "188"
+    }
+  ]
+}

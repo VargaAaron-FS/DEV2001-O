@@ -114,6 +114,13 @@ nav button {
 #success-msg {
     display: none;
     color: green;
+    background: rgba(00,255,00,.1);
+    padding: 1rem;
+    border-radius: .25rem;
+    border: 2px solid green;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .red-text {
@@ -278,6 +285,10 @@ footer {
     }
 
     header {
+        text-align: left;
+    }
+
+    #success-msg {
         text-align: left;
     }
 
