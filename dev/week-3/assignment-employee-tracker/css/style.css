@@ -182,9 +182,9 @@ input, select {
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    -webkit-animation: fade-in-popup .1s ease-in;
-    -moz-animation: fade-in-popup .1s ease-in;
-    animation: fade-in-popup .1s ease-in;
+    -webkit-animation: fade-in-popup .25s ease;
+    -moz-animation: fade-in-popup .25s ease;
+    animation: fade-in-popup .25s ease;
 }
 
 @-webkit-keyframes fade-in-popup {
