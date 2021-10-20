@@ -247,10 +247,14 @@ input, select {
 
 #employee-list {
     padding: 0 0 1rem 0;
+    position: relative;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 #employee-list-table {
     width: 100%;
+    min-width: 485px;
     text-align: center;
 }
 
