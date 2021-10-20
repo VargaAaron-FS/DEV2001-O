@@ -91,28 +91,28 @@ class Employee{
 class PartTime extends Employee{
     constructor(name,age,annualSalary,payRate,hours,employeeType) {
         super(name,age,annualSalary);
-        this.payRate = payRate;
+        this.payRate = `$${parseFloat(payRate).toFixed(2)}`;
         this.hours = hours;
         this.employeeType = "PT";
     }
     calculatePay(hours,payRate){
         this.hours = hours;
         this.payRate = payRate;
-        return hours*payRate*52;
+        return `$${parseFloat(`${hours*payRate*52}`).toFixed(2)}`;
     }
 }
 
 class FullTime extends Employee{
     constructor(name,age,annualSalary,payRate,hours,employeeType) {
         super(name,age,annualSalary);
-        this.payRate = payRate;
+        this.payRate = `$${parseFloat(payRate).toFixed(2)}`;
         this.hours = 40;
         this.employeeType = "FT";
     }
     calculatePay(hours,payRate){
         this.hours = hours;
         this.payRate = payRate;
-        return (hours*payRate*52)-1000;
+        return `$${parseFloat(`${(hours*payRate*52)-1000}`).toFixed(2)}`;
     }
 }
 
@@ -163,7 +163,7 @@ class Main{
         // Append a text node to the cell
         let newId = document.createTextNode(`${this.employees.length}`);
         let newName = document.createTextNode(`${scott.name}`);
-        let newAnnualSalary = document.createTextNode(`${scott.annualSalary}`);
+        let newAnnualSalary = document.createTextNode(`$${parseFloat(`${scott.annualSalary}`).toFixed(2)}`);
         let newHours = document.createTextNode(`${scott.hours}`);
         let newPayRate = document.createTextNode(`${scott.payRate}`);
         let newEmployeeType = document.createTextNode(`${scott.employeeType}`);
@@ -212,7 +212,7 @@ class Main{
         // Append a text node to the cell
         let newId = document.createTextNode(`${this.employees.length}`);
         let newName = document.createTextNode(`${dave.name}`);
-        let newAnnualSalary = document.createTextNode(`${dave.annualSalary}`);
+        let newAnnualSalary = document.createTextNode(`$${parseFloat(`${dave.annualSalary}`).toFixed(2)}`);
         let newHours = document.createTextNode(`${dave.hours}`);
         let newPayRate = document.createTextNode(`${dave.payRate}`);
         let newEmployeeType = document.createTextNode(`${dave.employeeType}`);
@@ -262,7 +262,7 @@ class Main{
         // Append a text node to the cell
         let newId = document.createTextNode(`${this.employees.length}`);
         let newName = document.createTextNode(`${lisa.name}`);
-        let newAnnualSalary = document.createTextNode(`${lisa.annualSalary}`);
+        let newAnnualSalary = document.createTextNode(`$${parseFloat(`${lisa.annualSalary}`).toFixed(2)}`);
         let newHours = document.createTextNode(`${lisa.hours}`);
         let newPayRate = document.createTextNode(`${lisa.payRate}`);
         let newEmployeeType = document.createTextNode(`${lisa.employeeType}`);
@@ -676,7 +676,19 @@ class Main{
                 let i = 0;
                 let editedPay = document.querySelector("#edit-payrate").value;
                 let updatedTableId = document.getElementById("employee-list-table").rows[findIndex+1].cells;
-                updatedTableId[4].innerHTML = `${editedPay}`;
+                updatedTableId[4].innerHTML = `$${parseFloat(`${editedPay}`).toFixed(2)}`;
+
+                // Update annual salary when pay is edited/saved/changed
+                // for part time employees
+                if(this.employees[findIndex].hours < 40){
+                    let hours = this.employees[findIndex].hours;
+                    updatedTableId[2].innerHTML = `$${parseFloat(`${hours*editedPay*52}`).toFixed(2)}`;
+                }
+                // for full time employees
+                else if(this.employees[findIndex].hours >= 40){
+                    let hours = this.employees[findIndex].hours;
+                    updatedTableId[2].innerHTML = `$${parseFloat(`${(hours*editedPay*52)-1000}`).toFixed(2)}`;
+                }
 
                 // Create variable to assign table element
                 let tableRef = document.querySelector("#employee-list-table");

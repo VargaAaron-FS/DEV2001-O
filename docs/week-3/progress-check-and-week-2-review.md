@@ -1,6 +1,6 @@
 # Intro to Development II (DEV2001-O)
 
-## Progress Check & Week 1 Review
+## Progress Check & Week 2 Review
 
 ### Instructions
 
