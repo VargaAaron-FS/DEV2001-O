@@ -16,8 +16,12 @@ Please post your response to the following questions as this discussion has a sm
 
 ### Resources
 
-[Using fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+[A Quick List of Array Methods](https://www.w3schools.com/jsref/jsref_obj_array.asp)
 
-[Polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science))
+[Splice Method in Detail](https://www.youtube.com/watch?v=FFas8cMHVwg)
 
-[Switch Statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+[Splicing an Array (Video)](https://www.youtube.com/watch?v=FFas8cMHVwg)
+
+[Array Filter Method](https://flexiple.com/javascript-filter-array/)
+
+[Inheritance Walk-through](https://www.educative.io/courses/javascript-in-practice-es6-and-beyond/gxnmxZjV0B9)
