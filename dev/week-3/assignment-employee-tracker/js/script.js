@@ -728,7 +728,19 @@ class Main{
             let i = 0;
             let editedPay = document.querySelector("#edit-payrate").value;
             let updatedTableId = document.getElementById("employee-list-table").rows[editEmployeeId].cells;
-            updatedTableId[4].innerHTML = `${editedPay}`;
+            updatedTableId[4].innerHTML = `$${parseFloat(`${editedPay}`).toFixed(2)}`;
+
+            // Update annual salary when pay is edited/saved/changed
+            // for part time employees
+            if(this.employees[editEmployeeId-1].hours < 40){
+                let hours = this.employees[editEmployeeId-1].hours;
+                updatedTableId[2].innerHTML = `$${parseFloat(`${hours*editedPay*52}`).toFixed(2)}`;
+            }
+            // for full time employees
+            else if(this.employees[editEmployeeId-1].hours >= 40){
+                let hours = this.employees[editEmployeeId-1].hours;
+                updatedTableId[2].innerHTML = `$${parseFloat(`${(hours*editedPay*52)-1000}`).toFixed(2)}`;
+            }
 
             // Close employee form
             document.querySelector("#edit-employee-form-popup").style.display = "none";
