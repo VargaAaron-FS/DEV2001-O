@@ -314,6 +314,14 @@ class Main{
         // Set immediate focus on first input field for usability
         document.querySelector("#remove-by-name").focus();
 
+        // If you try to enter values for both input fields, on the second input click, the first field is cleared
+        document.querySelector("#remove-by-name").addEventListener("click",function(e) {
+            document.querySelector("#remove-by-id").value = "";
+        })
+        document.querySelector("#remove-by-id").addEventListener("click",function(e) {
+            document.querySelector("#remove-by-name").selectedIndex = 0;
+        })
+
         // Add where if you click the background you will close the form
         document.querySelector(".popup-background").addEventListener("click", function(e){
             // Close add employee form
@@ -330,6 +338,14 @@ class Main{
 
         // Set immediate focus on first input field for usability
         document.querySelector("#edit-by-name").focus();
+
+        // If you try to enter values for both input fields, on the second input click, the first field is cleared
+        document.querySelector("#edit-by-name").addEventListener("click",function(e) {
+            document.querySelector("#edit-by-id").value = "";
+        })
+        document.querySelector("#edit-by-id").addEventListener("click",function(e) {
+            document.querySelector("#edit-by-name").selectedIndex = 0;
+        })
 
         // Add where if you click the background you will close the form
         document.querySelector(".popup-background").addEventListener("click", function(e){
