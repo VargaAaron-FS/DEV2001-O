@@ -25,8 +25,6 @@ class Movie{
 class Main{
     constructor(){
         // console.log("main started");
-        //properties - You should not need more than what is listed here,
-        //but you are allowed to change them if needed
 
         this.JSONdata = JSON.parse(jsonString);
 
@@ -98,7 +96,7 @@ class Main{
         // Remove when dynamic data/loop is made
         movieImage.src = `images/${moviesArray[clicks].imageFile}`;
 
-        // When image is done loading, add to DOM and show width of Image
+        // When image is done loading, add to DOM
         // movieImage.addEventListener("load",e =>{
             container.append(movieImage); // Adding image to container node!
 
@@ -167,16 +165,11 @@ class Main{
     }
 
     showMovie(e){
-        /*This function updates the output to show the correct movie information and image.
-        It should be called when next button is clicked and also initially so a movie is seen
-        before button is clicked the first time*/
         // console.log("show movie");
 
         // Movie theatre info
         document.querySelector(".movie-theatre-name").innerHTML = `${this.JSONdata.movieTheatre}`;
         document.querySelector(".movie-theatre-address").innerHTML = `${this.JSONdata.address.city}, ${this.JSONdata.address.state}`;
-
-        // Loop through movies and their data
     }
 }
 
