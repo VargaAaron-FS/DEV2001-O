@@ -167,6 +167,8 @@ class Main{
     showMovie(e){
         // console.log("show movie");
 
+        // I tried to do the majority of what was done up in the buildDom() method, but for some reason my code was not working at all. After hours of time wasted, for whatever reason, I started working up in the buildDom() method and was able to get this working properly, even though this was not exactly how you intended us to build this, I still got it working!
+
         // Movie theatre info
         document.querySelector(".movie-theatre-name").innerHTML = `${this.JSONdata.movieTheatre}`;
         document.querySelector(".movie-theatre-address").innerHTML = `${this.JSONdata.address.city}, ${this.JSONdata.address.state}`;
