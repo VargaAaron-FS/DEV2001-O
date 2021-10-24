@@ -1,5 +1,5 @@
 const jsonString =`{
-    "movieTheatre": "Bobs Movie Plex",
+    "movieTheatre": "Bob's Movie Plex",
     "address": {
     "city": "Orlando",
         "state": "FL"
